@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var email: String = ""
     @State private var login = ""
     @State private var password = ""
-    
+    @State private var isTrue = true
     private let keyboardIsOnPublisher = Publishers.Merge( NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
         .map { _ in true }, NotificationCenter.default.publisher(for:
                                                                     UIResponder.keyboardWillHideNotification) .map { _ in false }
@@ -21,6 +21,7 @@ struct ContentView: View {
         .removeDuplicates()
     
     var body: some View {
+        let _ = print("Update ContentView")
         ZStack {
             // backgroundImage
             Image("VKlogo")
@@ -34,18 +35,21 @@ struct ContentView: View {
                 Spacer(minLength: self.center
                        - 200)
                 VStack {
+                    if isTrue {
+                    Text("Войти") .font(.largeTitle) .padding(.top, 32)
+                    } else {
+                        Text("Вошли") .font(.largeTitle) .padding(.top, 32)
+                    }
                     HStack {
                         Text("Email: ")
                             .font(Font.system(size: 20,design: .monospaced))
                             .frame(width: 150)
-                        //  Spacer(minLength: 40)
                         TextField("Enter Your Email", text: $email)
                             .background(Color(UIColor.lightGray))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 200)
                     }
                     .padding(.top, 40)
-                    
                     
                     Spacer()
                     
@@ -54,7 +58,6 @@ struct ContentView: View {
                             .font(Font.system(size: 20,design: .monospaced))
                             .frame(width: 150)
                         
-                        // Spacer()
                         SecureField("Enter Your password", text: $password)
                             .background(Color(UIColor.lightGray))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -63,14 +66,18 @@ struct ContentView: View {
                     .padding(25)
                     
                     HStack{
-                        Button(action: { print("Hello") }) {
+                        Button(action: {
+                            isTrue.toggle()
+                        })
+                        {
                             Text("Войти")
                         }
+                       
                         .padding(.top, 8)
                         .padding(.trailing, 40)
                         .padding(.leading, 40)
                         .padding(.bottom, 8)
-                        .disabled(login.isEmpty || password.isEmpty)
+                        .disabled(email.isEmpty || password.isEmpty)
                         .background(Color(UIColor.white))
                         .onReceive(keyboardIsOnPublisher) { isKeyboardOn in withAnimation(Animation.easeInOut(duration: 0.5)) {
                             
@@ -85,7 +92,9 @@ struct ContentView: View {
                 
                 
             }
+           
         }
+    
     }
 }
 
@@ -94,6 +103,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 
 
 
