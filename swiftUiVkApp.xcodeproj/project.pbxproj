@@ -53,7 +53,7 @@
 			children = (
 				634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */,
 				634666CB28FE6740004AD934 /* ContentView.swift */,
-				634666CD28FE6741004AD934 /* Assets.xcassets */,
+				634666D72900FC17004AD934 /* Assets */,
 				634666CF28FE6741004AD934 /* Preview Content */,
 			);
 			path = swiftUiVkApp;
@@ -65,6 +65,14 @@
 				634666D028FE6741004AD934 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		634666D72900FC17004AD934 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				634666CD28FE6741004AD934 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
