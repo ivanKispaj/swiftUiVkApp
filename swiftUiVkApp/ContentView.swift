@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var login = ""
     @State private var password = ""
     @State private var isTrue = true
+    
     private let keyboardIsOnPublisher = Publishers.Merge( NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
         .map { _ in true }, NotificationCenter.default.publisher(for:
                                                                     UIResponder.keyboardWillHideNotification) .map { _ in false }
