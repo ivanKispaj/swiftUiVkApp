@@ -141,9 +141,10 @@ extension UIApplication {
 
 // Для превью
 struct ContentView_Previews: PreviewProvider {
+ 
     static var previews: some View {
-        _ContentView()
-        
+            _ContentView()
     }
 }
+
 

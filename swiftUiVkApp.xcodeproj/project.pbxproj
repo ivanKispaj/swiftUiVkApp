@@ -11,6 +11,8 @@
 		634666CC28FE6740004AD934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666CB28FE6740004AD934 /* ContentView.swift */; };
 		634666CE28FE6741004AD934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634666CD28FE6741004AD934 /* Assets.xcassets */; };
 		634666D128FE6741004AD934 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634666D028FE6741004AD934 /* Preview Assets.xcassets */; };
+		634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F4290700D8004AD934 /* FriendsCellView.swift */; };
+		634666F729070C15004AD934 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F629070C15004AD934 /* GroupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		634666CB28FE6740004AD934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		634666CD28FE6741004AD934 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		634666D028FE6741004AD934 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		634666F4290700D8004AD934 /* FriendsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCellView.swift; sourceTree = "<group>"; };
+		634666F629070C15004AD934 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 		634666C828FE6740004AD934 /* swiftUiVkApp */ = {
 			isa = PBXGroup;
 			children = (
+				634666F32907006D004AD934 /* TableCellView */,
 				634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */,
 				634666CB28FE6740004AD934 /* ContentView.swift */,
 				634666D72900FC17004AD934 /* Assets */,
@@ -73,6 +78,15 @@
 				634666CD28FE6741004AD934 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		634666F32907006D004AD934 /* TableCellView */ = {
+			isa = PBXGroup;
+			children = (
+				634666F4290700D8004AD934 /* FriendsCellView.swift */,
+				634666F629070C15004AD934 /* GroupCell.swift */,
+			);
+			path = TableCellView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				634666CC28FE6740004AD934 /* ContentView.swift in Sources */,
+				634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */,
 				634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */,
+				634666F729070C15004AD934 /* GroupCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +299,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +329,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
