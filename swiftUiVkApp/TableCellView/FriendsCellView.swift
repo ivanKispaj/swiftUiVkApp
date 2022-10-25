@@ -13,15 +13,40 @@ struct FriendsCellView: View {
     @State private var userName: String = "User Full Name"
     
     var body: some View {
-        
-        TableCell(logo: {
-            LogoImage {
-                Image("VKlogo")
+        ZStack(alignment: .topLeading) {
+           
+                VStack(alignment: .leading,spacing: 0) {
+                    ScrollView {
+                    TableCell(logo: {
+                        LogoImage {
+                            Image("VKlogo")
+                        }
+                    }, lable: {
+                        Text(userName)
+                    }, width: size.width)
+                    
+                    TableCell(logo: {
+                        LogoImage {
+                            Image(systemName: "hand.raised.square.on.square.fill")
+                        }
+                    }, lable: {
+                        Text("1241212412414124124")
+                    }, width: size.width)
+                    TableCell(logo: {
+                        LogoImage {
+                            Image(systemName: "flag.2.crossed")
+                        }
+                    }, lable: {
+                        Text("09jnf0iewnfj1")
+                    }, width: size.width)
+                    Spacer()
+                }
+                .frame(width: size.width,height: size.height)
+                .background(Color.red)
             }
-        }, lable: {
-            Text(userName)
-            
-        }, width: size.width)
+        }
+        
+        
     }
     
 }
@@ -39,7 +64,6 @@ struct TableCell: View {
     }
     
     var body: some View {
-        ZStack(alignment: .leading) {
             HStack(alignment: .center) {
                     logo
                     .padding(10)
@@ -48,9 +72,8 @@ struct TableCell: View {
                 Spacer()
                 }
                 .frame(minWidth: width)
-        }
-        .background(Color.gray.opacity(0.3))
-        .frame(height: 80)
+                .background(Color.gray.opacity(0.3))
+                .frame(height: 80)
     }
 }
 
@@ -74,8 +97,10 @@ struct LogoImage: View {
 
 struct _FriendsCellView: View {
     var body: some View {
-        GeometryReader { geo in
-            FriendsCellView(size: geo.size)
+        ZStack {
+            GeometryReader { geo in
+                FriendsCellView(size: geo.size)
+            }
         }
     }
 }
