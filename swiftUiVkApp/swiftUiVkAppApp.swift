@@ -11,8 +11,8 @@ import SwiftUI
 struct swiftUiVkAppApp: App {
     var body: some Scene {
         WindowGroup {
-          //  _ContentView()
-            FriendsCellView()
+            _ContentView()
+           // FriendsCellView()
         }
     }
 }

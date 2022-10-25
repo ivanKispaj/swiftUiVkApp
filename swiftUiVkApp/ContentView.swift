@@ -144,6 +144,7 @@ struct ContentView_Previews: PreviewProvider {
  
     static var previews: some View {
             _ContentView()
+            .previewDevice("iPhone 8")
     }
 }
 
