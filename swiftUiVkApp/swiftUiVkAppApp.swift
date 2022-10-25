@@ -12,7 +12,6 @@ struct swiftUiVkAppApp: App {
     var body: some Scene {
         WindowGroup {
             _ContentView()
-           // FriendsCellView()
         }
     }
 }
