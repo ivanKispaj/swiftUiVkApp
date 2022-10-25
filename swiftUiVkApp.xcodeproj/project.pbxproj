@@ -14,6 +14,7 @@
 		634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F4290700D8004AD934 /* FriendsCellView.swift */; };
 		634666F729070C15004AD934 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F629070C15004AD934 /* GroupCell.swift */; };
 		634666FA29079872004AD934 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F929079872004AD934 /* CircleShadow.swift */; };
+		634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666FC290855C1004AD934 /* CustomImageLogo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		634666F4290700D8004AD934 /* FriendsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCellView.swift; sourceTree = "<group>"; };
 		634666F629070C15004AD934 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		634666F929079872004AD934 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
+		634666FC290855C1004AD934 /* CustomImageLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageLogo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		634666C828FE6740004AD934 /* swiftUiVkApp */ = {
 			isa = PBXGroup;
 			children = (
+				634666FB290855A7004AD934 /* CustomView */,
 				634666F82907985B004AD934 /* ViewModifier */,
 				634666F32907006D004AD934 /* TableCellView */,
 				634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */,
@@ -98,6 +101,14 @@
 				634666F929079872004AD934 /* CircleShadow.swift */,
 			);
 			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		634666FB290855A7004AD934 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				634666FC290855C1004AD934 /* CustomImageLogo.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */,
 				634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */,
 				634666F729070C15004AD934 /* GroupCell.swift in Sources */,
+				634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

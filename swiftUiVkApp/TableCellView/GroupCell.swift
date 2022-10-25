@@ -10,33 +10,41 @@ import SwiftUI
 struct GroupCell: View {
     @State private var groupName: String = "Group Name"
     var body: some View {
-        groupCell
+        ScrollView {
+            GroupTableCell(userName: "ВКонтакте", logo: Image("VKlogo"), cellHeight: 60)
+
+        }
     }
     
 }
 
-private extension GroupCell {
-    var groupCell: some View {
-        VStack {
-            GeometryReader { _ in
-                
-                HStack {
-                    
-                    Image("VKlogo")
-                        .resizable()
-                        .frame(width: 50,height: 50)
-                        .background(Color.white)
-                        .cornerRadius(50)
-                        .shadow(color: .cyan, radius: 8)
-                    Text(groupName)
-                        .padding(.leading, 20)
-                }
-                
-                .padding(20)
-            }
+
+struct GroupTableCell: View {
+    let cellHeight: CGFloat
+    let color: Color
+    let userName: String
+    let logo: Image
+    
+    init(userName: String, logo: Image, cellHeight: CGFloat = 80, cellBackGround: Color = .gray)  {
+        self.userName = userName
+        self.logo = logo
+        self.cellHeight = cellHeight
+        self.color = cellBackGround
+    }
+    
+    var body: some View {
+        
+        HStack(alignment: .center) {
+            CustomImageLogo(content: {
+                logo
+            })
+            .frame(minHeight: cellHeight)
+            .padding(.leading, 20)
+            Text(userName)
+                .padding(.leading,15)
+            Spacer()
         }
-        .background(Color.gray.opacity(0.3))
-        .frame(height: 80)
+        .background(color.opacity(0.3))
     }
 }
 

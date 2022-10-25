@@ -34,13 +34,12 @@ struct LoginScreen: View {
             }
             
             // ScrollView
-            
             ScrollView(showsIndicators: false) {
-                
+        
                 VStack {
                     
                     VStack {
-                        
+                  
                         if isTrue {
                             Text("Войти") .font(.largeTitle)
                                 .padding(.top, 15)
