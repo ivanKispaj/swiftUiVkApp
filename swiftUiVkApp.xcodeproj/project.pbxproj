@@ -18,8 +18,6 @@
 		63B006CE29167B09001A34D6 /* FriendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B006CD29167B09001A34D6 /* FriendDataModel.swift */; };
 		63B00BDD29168778001A34D6 /* LoadAndSaveFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */; };
 		63B00BDE29168778001A34D6 /* InternetConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDA29168778001A34D6 /* InternetConnections.swift */; };
-		63B00BDF29168778001A34D6 /* InternetConnectionProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDB29168778001A34D6 /* InternetConnectionProxy.swift */; };
-		63B00BE029168778001A34D6 /* NetworkSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDC29168778001A34D6 /* NetworkSessionData.swift */; };
 		63B00BE329168B63001A34D6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 63B00BE229168B63001A34D6 /* Realm */; };
 		63B00BE529168B63001A34D6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63B00BE429168B63001A34D6 /* RealmSwift */; };
 		63B00BE829168C51001A34D6 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BE729168C51001A34D6 /* RealmService.swift */; };
@@ -45,8 +43,6 @@
 		63B006CD29167B09001A34D6 /* FriendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDataModel.swift; sourceTree = "<group>"; };
 		63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadAndSaveFriends.swift; sourceTree = "<group>"; };
 		63B00BDA29168778001A34D6 /* InternetConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnections.swift; sourceTree = "<group>"; };
-		63B00BDB29168778001A34D6 /* InternetConnectionProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionProxy.swift; sourceTree = "<group>"; };
-		63B00BDC29168778001A34D6 /* NetworkSessionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionData.swift; sourceTree = "<group>"; };
 		63B00BE729168C51001A34D6 /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginScene.swift; sourceTree = "<group>"; };
 		63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
@@ -174,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				63B00BD829168778001A34D6 /* InternetConnection */,
-				63B00BDC29168778001A34D6 /* NetworkSessionData.swift */,
 				63B00BE629168C51001A34D6 /* RealmService */,
 			);
 			name = InternetConnections;
@@ -186,7 +181,6 @@
 			children = (
 				63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */,
 				63B00BDA29168778001A34D6 /* InternetConnections.swift */,
-				63B00BDB29168778001A34D6 /* InternetConnectionProxy.swift */,
 			);
 			path = InternetConnection;
 			sourceTree = "<group>";
@@ -332,8 +326,6 @@
 				634666FA29079872004AD934 /* CircleShadow.swift in Sources */,
 				63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */,
 				63B006CE29167B09001A34D6 /* FriendDataModel.swift in Sources */,
-				63B00BE029168778001A34D6 /* NetworkSessionData.swift in Sources */,
-				63B00BDF29168778001A34D6 /* InternetConnectionProxy.swift in Sources */,
 				63F5DAC6290E4C6C004D0CB4 /* TabBarView.swift in Sources */,
 				634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */,
 				634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */,

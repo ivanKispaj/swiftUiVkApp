@@ -26,7 +26,7 @@ struct FriendsScene: View {
             ZStack {
             
                 List(self.viewModel.friend) { friend in
-                            FriendsCellView(friends: friend)
+                            FriendsCellView(friend: friend)
 
                 }
                 .listStyle(.plain)

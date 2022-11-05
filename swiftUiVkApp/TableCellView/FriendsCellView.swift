@@ -10,12 +10,12 @@ import Combine
 import Kingfisher
 struct FriendsCellView: View {
     @State private var userName: String = "User Full Name"
-    @State var friends: Friend
+    @State var friend: Friend
     @State var isSelected = false
     var body: some View {
 
         ScrollView {
-            FriendTableCell(userName: friends.userName, logo:   Image(uiImage: (UIImage(data: friends.photo) ?? UIImage(systemName: "photo"))!) )
+            FriendTableCell(friend: friend)
                 
                 .navigationDestination(isPresented: $isSelected) {
                  //   GroupCell(group: friends)
@@ -33,28 +33,61 @@ struct FriendsCellView: View {
 struct FriendTableCell: View {
     let cellHeight: CGFloat
     let color: Color
-    let userName: String
-    let logo: Image
+    let friend: Friend
+    let logo: Image = Image(systemName: "photo")
+//    let userName: String
+//    let logo: Image
     
-    init(userName: String, logo: Image, cellHeight: CGFloat = 60, cellBackGround: Color = .gray)  {
-        self.userName = userName
-        self.logo = logo
+    init(friend: Friend, cellHeight: CGFloat = 60, cellBackGround: Color = .gray)  {
+        self.friend = friend
         self.cellHeight = cellHeight
         self.color = cellBackGround
+        
     }
     
     var body: some View {
         
         HStack(alignment: .center) {
-      
+            
+            if let image = UIImage(data: self.friend.photo) {
                 CustomImageLogo(content: {
-                    logo
+                    Image(uiImage: image)
                 })
                 .padding(.leading, 20)
+              
+            } else {
+                CustomImageLogo(content: {
+                    Image(systemName: "photo")
+                })
+                .padding(.leading, 20)
+                
+            }
+                
          
           
-            Text(userName)
-                .padding(.leading,15)
+            VStack(alignment: .leading) {
+                    Text(friend.userName)
+                HStack {
+                    Text(friend.city)
+                        .font(.subheadline)
+                        .fontWeight(.ultraLight)
+                    Spacer()
+                    if friend.isBanned {
+                        Text("Banned")
+                            .fontWeight(.heavy)
+                            .font(.footnote)
+                            .foregroundColor(.pink)
+                    } else if friend.isClosedProfile {
+                        Text("Private")
+                            .fontWeight(.heavy)
+                            .font(.footnote)
+                            .foregroundColor(.red)
+                    } 
+                    
+                }
+            }
+                .padding(.leading, 15)
+            
             Spacer()
         }
         .frame(height: cellHeight)

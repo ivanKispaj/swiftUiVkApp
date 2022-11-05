@@ -22,12 +22,23 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Friends", systemImage: "person.2.badge.gearshape.fill")
                 }
-//            GroupCell()
-//                .badge("!")
-//                .tabItem {
-//                    Label("Groups", systemImage: "person.3.fill")
-//                }
+            GroupCell()
+          //  EmptyView()
+                .badge("!")
+                .tabItem {
+                    Label("Groups", systemImage: "person.3.fill")
+                }
         }
+        .onAppear {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundEffect = UIBlurEffect(style: .systemChromeMaterial)
+            appearance.backgroundColor = UIColor(Color.cyan.opacity(0.2))
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+                
+        
     }
 }
+
 
