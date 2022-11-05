@@ -18,15 +18,15 @@ struct TabBarView: View {
                 .tabItem {
                     Label("News", systemImage: "house.fill")
                 }
-            FriendsScene()
+            FriendsScene(viewModel: FriendsViewModel())
                 .tabItem {
                     Label("Friends", systemImage: "person.2.badge.gearshape.fill")
                 }
-            GroupCell()
-                .badge("!")
-                .tabItem {
-                    Label("Groups", systemImage: "person.3.fill")
-                }
+//            GroupCell()
+//                .badge("!")
+//                .tabItem {
+//                    Label("Groups", systemImage: "person.3.fill")
+//                }
         }
     }
 }

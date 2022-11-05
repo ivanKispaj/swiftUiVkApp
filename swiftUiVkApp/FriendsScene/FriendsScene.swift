@@ -9,27 +9,41 @@ import SwiftUI
 
 
 struct FriendsScene: View {
-    @State private var friends: [Friends] = [
-        Friends(name: "Путин", imageName: "flag.2.crossed"),
-        Friends(name: "Шольц", imageName: "mic"),
-        Friends(name: "Квазимода", imageName: "network.badge.shield.half.filled"),
-        Friends(name: "Радищев", imageName: "figure.walk")
-    ]
     
+  //  @State private var friends: [Friends] = []
+    @ObservedObject var viewModel: FriendsViewModel
     @State var nextDestination: String = ""
     @State var selection = false
    // @State private var isPresent = false
+    private var userId = UserDefaults.standard.string(forKey: AuthData.userId.rawValue)
+    
+    init(viewModel: FriendsViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         NavigationStack(root: {
             ZStack {
-                List(friends) { friends in
-                            FriendsCellView(friends: friends)
-  
+            
+                List(self.viewModel.friend) { friend in
+                            FriendsCellView(friends: friend)
+
                 }
                 .listStyle(.plain)
+                
             }
+            .navigationTitle("Друзья")
+            .navigationBarTitleDisplayMode(.inline)
            
         })
+      
+        .onAppear {
+            viewModel.internetConnection.loadFriends(for: userId!) { response in
+                DispatchQueue.main.async {
+                    self.viewModel.friend = response
+                }
+            }
+                }
     }
 }
 

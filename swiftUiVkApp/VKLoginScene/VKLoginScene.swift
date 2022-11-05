@@ -8,6 +8,11 @@
 import SwiftUI
 import WebKit
 
+enum AuthData: String {
+    case token = "vkToken"
+    case userId = "userId"
+}
+
 struct VKLoginView: View {
     @State var isLogedIn: Bool = false
     private let pub = NotificationCenter.default
@@ -70,7 +75,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
-            print("Error !!!!!!")
+//            print("Error !!!!!!")
             decisionHandler(.allow)
             return
         }
@@ -95,8 +100,10 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
             return
         }
         
-        UserDefaults.standard.set(token, forKey: "vkToken")
+        UserDefaults.standard.set(token, forKey: AuthData.token.rawValue)
+        UserDefaults.standard.set(userIdString, forKey: AuthData.userId.rawValue)
         NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
+
         decisionHandler(.cancel)
         
         

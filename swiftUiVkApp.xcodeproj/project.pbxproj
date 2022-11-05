@@ -14,6 +14,15 @@
 		634666F729070C15004AD934 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F629070C15004AD934 /* GroupCell.swift */; };
 		634666FA29079872004AD934 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F929079872004AD934 /* CircleShadow.swift */; };
 		634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666FC290855C1004AD934 /* CustomImageLogo.swift */; };
+		63B006CC29167A38001A34D6 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B006CB29167A38001A34D6 /* FriendsViewModel.swift */; };
+		63B006CE29167B09001A34D6 /* FriendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B006CD29167B09001A34D6 /* FriendDataModel.swift */; };
+		63B00BDD29168778001A34D6 /* LoadAndSaveFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */; };
+		63B00BDE29168778001A34D6 /* InternetConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDA29168778001A34D6 /* InternetConnections.swift */; };
+		63B00BDF29168778001A34D6 /* InternetConnectionProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDB29168778001A34D6 /* InternetConnectionProxy.swift */; };
+		63B00BE029168778001A34D6 /* NetworkSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDC29168778001A34D6 /* NetworkSessionData.swift */; };
+		63B00BE329168B63001A34D6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 63B00BE229168B63001A34D6 /* Realm */; };
+		63B00BE529168B63001A34D6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63B00BE429168B63001A34D6 /* RealmSwift */; };
+		63B00BE829168C51001A34D6 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BE729168C51001A34D6 /* RealmService.swift */; };
 		63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */; };
 		63F482D5291225D1005F5F5B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63F482D4291225D1005F5F5B /* Kingfisher */; };
 		63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */; };
@@ -32,6 +41,13 @@
 		634666F629070C15004AD934 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		634666F929079872004AD934 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
 		634666FC290855C1004AD934 /* CustomImageLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageLogo.swift; sourceTree = "<group>"; };
+		63B006CB29167A38001A34D6 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
+		63B006CD29167B09001A34D6 /* FriendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDataModel.swift; sourceTree = "<group>"; };
+		63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadAndSaveFriends.swift; sourceTree = "<group>"; };
+		63B00BDA29168778001A34D6 /* InternetConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnections.swift; sourceTree = "<group>"; };
+		63B00BDB29168778001A34D6 /* InternetConnectionProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionProxy.swift; sourceTree = "<group>"; };
+		63B00BDC29168778001A34D6 /* NetworkSessionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionData.swift; sourceTree = "<group>"; };
+		63B00BE729168C51001A34D6 /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginScene.swift; sourceTree = "<group>"; };
 		63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		63F5DAC5290E4C6C004D0CB4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -45,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B00BE529168B63001A34D6 /* RealmSwift in Frameworks */,
+				63B00BE329168B63001A34D6 /* Realm in Frameworks */,
 				63F482D5291225D1005F5F5B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +89,7 @@
 		634666C828FE6740004AD934 /* swiftUiVkApp */ = {
 			isa = PBXGroup;
 			children = (
+				63B00BD729168778001A34D6 /* InternetConnections */,
 				63B006C92916738B001A34D6 /* StartVKApp */,
 				63EBC25729118BFD00F7EF78 /* VKLoginScene */,
 				63F5DAC9290EE218004D0CB4 /* FriendsScene */,
@@ -143,6 +162,43 @@
 			path = StartVKApp;
 			sourceTree = "<group>";
 		};
+		63B006CA29167A23001A34D6 /* FriendsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63B006CB29167A38001A34D6 /* FriendsViewModel.swift */,
+			);
+			path = FriendsViewModel;
+			sourceTree = "<group>";
+		};
+		63B00BD729168778001A34D6 /* InternetConnections */ = {
+			isa = PBXGroup;
+			children = (
+				63B00BD829168778001A34D6 /* InternetConnection */,
+				63B00BDC29168778001A34D6 /* NetworkSessionData.swift */,
+				63B00BE629168C51001A34D6 /* RealmService */,
+			);
+			name = InternetConnections;
+			path = ../../FinalVKApp/GB_HomeWork/VKApp_KonishchevIvan/VKApp_KonishchevIvan/Resourse/InternetConnections;
+			sourceTree = "<group>";
+		};
+		63B00BD829168778001A34D6 /* InternetConnection */ = {
+			isa = PBXGroup;
+			children = (
+				63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */,
+				63B00BDA29168778001A34D6 /* InternetConnections.swift */,
+				63B00BDB29168778001A34D6 /* InternetConnectionProxy.swift */,
+			);
+			path = InternetConnection;
+			sourceTree = "<group>";
+		};
+		63B00BE629168C51001A34D6 /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+				63B00BE729168C51001A34D6 /* RealmService.swift */,
+			);
+			path = RealmService;
+			sourceTree = "<group>";
+		};
 		63EBC25729118BFD00F7EF78 /* VKLoginScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +234,7 @@
 		63F5DAC9290EE218004D0CB4 /* FriendsScene */ = {
 			isa = PBXGroup;
 			children = (
+				63B006CA29167A23001A34D6 /* FriendsViewModel */,
 				63F5DACC290EE256004D0CB4 /* FirendsModel */,
 				63F5DACA290EE22F004D0CB4 /* FriendsScene.swift */,
 			);
@@ -188,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				63F5DACE290EE26A004D0CB4 /* FriendsModel.swift */,
+				63B006CD29167B09001A34D6 /* FriendDataModel.swift */,
 			);
 			path = FirendsModel;
 			sourceTree = "<group>";
@@ -210,6 +268,8 @@
 			name = swiftUiVkApp;
 			packageProductDependencies = (
 				63F482D4291225D1005F5F5B /* Kingfisher */,
+				63B00BE229168B63001A34D6 /* Realm */,
+				63B00BE429168B63001A34D6 /* RealmSwift */,
 			);
 			productName = swiftUiVkApp;
 			productReference = 634666C628FE6740004AD934 /* swiftUiVkApp.app */;
@@ -241,6 +301,7 @@
 			mainGroup = 634666BD28FE6740004AD934;
 			packageReferences = (
 				63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 634666C728FE6740004AD934 /* Products */;
 			projectDirPath = "";
@@ -270,15 +331,22 @@
 			files = (
 				634666FA29079872004AD934 /* CircleShadow.swift in Sources */,
 				63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */,
+				63B006CE29167B09001A34D6 /* FriendDataModel.swift in Sources */,
+				63B00BE029168778001A34D6 /* NetworkSessionData.swift in Sources */,
+				63B00BDF29168778001A34D6 /* InternetConnectionProxy.swift in Sources */,
 				63F5DAC6290E4C6C004D0CB4 /* TabBarView.swift in Sources */,
 				634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */,
 				634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */,
+				63B00BDD29168778001A34D6 /* LoadAndSaveFriends.swift in Sources */,
 				63F5DAC8290E4CD6004D0CB4 /* NewsSceneView.swift in Sources */,
 				634666F729070C15004AD934 /* GroupCell.swift in Sources */,
 				634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */,
+				63B006CC29167A38001A34D6 /* FriendsViewModel.swift in Sources */,
+				63B00BE829168C51001A34D6 /* RealmService.swift in Sources */,
 				63F5DACB290EE22F004D0CB4 /* FriendsScene.swift in Sources */,
 				63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */,
 				63F5DACF290EE26A004D0CB4 /* FriendsModel.swift in Sources */,
+				63B00BDE29168778001A34D6 /* InternetConnections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +551,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -494,6 +570,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		63B00BE229168B63001A34D6 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		63B00BE429168B63001A34D6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		63F482D4291225D1005F5F5B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */;

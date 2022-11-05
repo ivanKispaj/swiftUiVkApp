@@ -7,17 +7,19 @@
 
 import SwiftUI
 import Combine
-
+import Kingfisher
 struct FriendsCellView: View {
     @State private var userName: String = "User Full Name"
-    @State var friends: Friends
+    @State var friends: Friend
     @State var isSelected = false
     var body: some View {
 
         ScrollView {
-            FriendTableCell(userName: friends.name, logo: Image(systemName: friends.imageName))
+            FriendTableCell(userName: friends.userName, logo:   Image(uiImage: (UIImage(data: friends.photo) ?? UIImage(systemName: "photo"))!) )
+                
                 .navigationDestination(isPresented: $isSelected) {
-                    GroupCell(group: friends)
+                 //   GroupCell(group: friends)
+                    EmptyView()
                 }
                 .onTapGesture {
                     self.isSelected = true
@@ -57,6 +59,8 @@ struct FriendTableCell: View {
         }
         .frame(height: cellHeight)
         .background(color.opacity(0.3))
+        .border(.blue,width: 1)
+        .cornerRadius(3)
     }
 }
 

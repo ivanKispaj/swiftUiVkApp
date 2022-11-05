@@ -9,18 +9,18 @@ import SwiftUI
 
 struct GroupCell: View {
     @State private var groupName: String = "Group Name"
-    @State var group: Friends = Friends(name: "Путин", imageName: "flag.2.crossed")
+ //   @State var group: Friends = Friends(name: "Путин", imageName: "flag.2.crossed")
     @State private var isPresented = false
     
     var body: some View {
         ScrollView {
-            GroupTableCell(userName: group.name, logo: Image(systemName: group.imageName), cellHeight: 60)
-                .navigationDestination(isPresented: $isPresented) {
-                    FriendsCellView(friends: group)
-                }
-                .onTapGesture {
-                    self.isPresented = true
-                }
+//            GroupTableCell(userName: group.name, logo: Image(systemName: group.imageName), cellHeight: 60)
+//                .navigationDestination(isPresented: $isPresented) {
+//                    FriendsCellView(friends: group)
+//                }
+//                .onTapGesture {
+//                    self.isPresented = true
+//                }
         }
     }
     
