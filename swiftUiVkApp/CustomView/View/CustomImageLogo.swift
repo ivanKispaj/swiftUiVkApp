@@ -16,9 +16,10 @@ struct  CustomImageLogo: View {
     }
     
     var body: some View {
-        content
-            .resizable()
-            .frame(width: 50,height: 50)
-            .modifier(CircleShadow(color: .red, circleRadius: 50, shadowRadius: 8))
+     
+            content
+                .frame(width: 40 ,height: 40)
+                .modifier(CircleShadow(color: .blue, circleRadius: 50, shadowRadius: 8))
+        
     }
 }

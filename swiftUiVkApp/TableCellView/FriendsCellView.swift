@@ -10,21 +10,18 @@ import Combine
 
 struct FriendsCellView: View {
     @State private var userName: String = "User Full Name"
-    
+    @State var friends: Friends
+    @State var isSelected = false
     var body: some View {
-        
+
         ScrollView {
-            Group {
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                FriendTableCell(userName: userName,logo: Image("VKlogo") , cellHeight: 70)
-                
-            }
+            FriendTableCell(userName: friends.name, logo: Image(systemName: friends.imageName))
+                .navigationDestination(isPresented: $isSelected) {
+                    GroupCell(group: friends)
+                }
+                .onTapGesture {
+                    self.isSelected = true
+                }
         }
     }
     
@@ -37,7 +34,7 @@ struct FriendTableCell: View {
     let userName: String
     let logo: Image
     
-    init(userName: String, logo: Image, cellHeight: CGFloat = 80, cellBackGround: Color = .gray)  {
+    init(userName: String, logo: Image, cellHeight: CGFloat = 60, cellBackGround: Color = .gray)  {
         self.userName = userName
         self.logo = logo
         self.cellHeight = cellHeight
@@ -47,15 +44,18 @@ struct FriendTableCell: View {
     var body: some View {
         
         HStack(alignment: .center) {
-            CustomImageLogo(content: {
-                logo
-            })
-            .frame(minHeight: cellHeight)
-            .padding(.leading, 20)
+      
+                CustomImageLogo(content: {
+                    logo
+                })
+                .padding(.leading, 20)
+         
+          
             Text(userName)
                 .padding(.leading,15)
             Spacer()
         }
+        .frame(height: cellHeight)
         .background(color.opacity(0.3))
     }
 }
@@ -63,13 +63,13 @@ struct FriendTableCell: View {
 
 
 
-// Для превью FriendsCell
-struct FriendsCell_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        FriendsCellView()
-        
-    }
-}
+//// Для превью FriendsCell
+//struct FriendsCell_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        
+//     //   FriendsCellView()
+//        
+//    }
+//}
 

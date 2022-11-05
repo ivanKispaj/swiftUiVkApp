@@ -8,25 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */; };
-		634666CC28FE6740004AD934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666CB28FE6740004AD934 /* ContentView.swift */; };
 		634666CE28FE6741004AD934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634666CD28FE6741004AD934 /* Assets.xcassets */; };
 		634666D128FE6741004AD934 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634666D028FE6741004AD934 /* Preview Assets.xcassets */; };
 		634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F4290700D8004AD934 /* FriendsCellView.swift */; };
 		634666F729070C15004AD934 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F629070C15004AD934 /* GroupCell.swift */; };
 		634666FA29079872004AD934 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F929079872004AD934 /* CircleShadow.swift */; };
 		634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666FC290855C1004AD934 /* CustomImageLogo.swift */; };
+		63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */; };
+		63F482D5291225D1005F5F5B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63F482D4291225D1005F5F5B /* Kingfisher */; };
+		63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */; };
+		63F5DAC6290E4C6C004D0CB4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC5290E4C6C004D0CB4 /* TabBarView.swift */; };
+		63F5DAC8290E4CD6004D0CB4 /* NewsSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC7290E4CD6004D0CB4 /* NewsSceneView.swift */; };
+		63F5DACB290EE22F004D0CB4 /* FriendsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DACA290EE22F004D0CB4 /* FriendsScene.swift */; };
+		63F5DACF290EE26A004D0CB4 /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DACE290EE26A004D0CB4 /* FriendsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		634666C628FE6740004AD934 /* swiftUiVkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftUiVkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUiVkAppApp.swift; sourceTree = "<group>"; };
-		634666CB28FE6740004AD934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		634666CD28FE6741004AD934 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		634666D028FE6741004AD934 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		634666F4290700D8004AD934 /* FriendsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCellView.swift; sourceTree = "<group>"; };
 		634666F629070C15004AD934 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		634666F929079872004AD934 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
 		634666FC290855C1004AD934 /* CustomImageLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageLogo.swift; sourceTree = "<group>"; };
+		63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginScene.swift; sourceTree = "<group>"; };
+		63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
+		63F5DAC5290E4C6C004D0CB4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		63F5DAC7290E4CD6004D0CB4 /* NewsSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSceneView.swift; sourceTree = "<group>"; };
+		63F5DACA290EE22F004D0CB4 /* FriendsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScene.swift; sourceTree = "<group>"; };
+		63F5DACE290EE26A004D0CB4 /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F482D5291225D1005F5F5B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,11 +71,14 @@
 		634666C828FE6740004AD934 /* swiftUiVkApp */ = {
 			isa = PBXGroup;
 			children = (
+				63B006C92916738B001A34D6 /* StartVKApp */,
+				63EBC25729118BFD00F7EF78 /* VKLoginScene */,
+				63F5DAC9290EE218004D0CB4 /* FriendsScene */,
+				63F5DAC1290ADA1F004D0CB4 /* NewsScene */,
 				634666FB290855A7004AD934 /* CustomView */,
 				634666F32907006D004AD934 /* TableCellView */,
-				634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */,
-				634666CB28FE6740004AD934 /* ContentView.swift */,
 				634666D72900FC17004AD934 /* Assets */,
+				63F5DAC0290ADA10004D0CB4 /* LoginScene */,
 				634666CF28FE6741004AD934 /* Preview Content */,
 			);
 			path = swiftUiVkApp;
@@ -119,6 +134,64 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		63B006C92916738B001A34D6 /* StartVKApp */ = {
+			isa = PBXGroup;
+			children = (
+				63F5DAC4290E4C57004D0CB4 /* TabBarView */,
+				634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */,
+			);
+			path = StartVKApp;
+			sourceTree = "<group>";
+		};
+		63EBC25729118BFD00F7EF78 /* VKLoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */,
+			);
+			path = VKLoginScene;
+			sourceTree = "<group>";
+		};
+		63F5DAC0290ADA10004D0CB4 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		63F5DAC1290ADA1F004D0CB4 /* NewsScene */ = {
+			isa = PBXGroup;
+			children = (
+				63F5DAC7290E4CD6004D0CB4 /* NewsSceneView.swift */,
+			);
+			path = NewsScene;
+			sourceTree = "<group>";
+		};
+		63F5DAC4290E4C57004D0CB4 /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				63F5DAC5290E4C6C004D0CB4 /* TabBarView.swift */,
+			);
+			path = TabBarView;
+			sourceTree = "<group>";
+		};
+		63F5DAC9290EE218004D0CB4 /* FriendsScene */ = {
+			isa = PBXGroup;
+			children = (
+				63F5DACC290EE256004D0CB4 /* FirendsModel */,
+				63F5DACA290EE22F004D0CB4 /* FriendsScene.swift */,
+			);
+			path = FriendsScene;
+			sourceTree = "<group>";
+		};
+		63F5DACC290EE256004D0CB4 /* FirendsModel */ = {
+			isa = PBXGroup;
+			children = (
+				63F5DACE290EE26A004D0CB4 /* FriendsModel.swift */,
+			);
+			path = FirendsModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +208,9 @@
 			dependencies = (
 			);
 			name = swiftUiVkApp;
+			packageProductDependencies = (
+				63F482D4291225D1005F5F5B /* Kingfisher */,
+			);
 			productName = swiftUiVkApp;
 			productReference = 634666C628FE6740004AD934 /* swiftUiVkApp.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 634666BD28FE6740004AD934;
+			packageReferences = (
+				63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 634666C728FE6740004AD934 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -189,12 +268,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				634666CC28FE6740004AD934 /* ContentView.swift in Sources */,
 				634666FA29079872004AD934 /* CircleShadow.swift in Sources */,
+				63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */,
+				63F5DAC6290E4C6C004D0CB4 /* TabBarView.swift in Sources */,
 				634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */,
 				634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */,
+				63F5DAC8290E4CD6004D0CB4 /* NewsSceneView.swift in Sources */,
 				634666F729070C15004AD934 /* GroupCell.swift in Sources */,
 				634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */,
+				63F5DACB290EE22F004D0CB4 /* FriendsScene.swift in Sources */,
+				63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */,
+				63F5DACF290EE26A004D0CB4 /* FriendsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +415,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -361,7 +445,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +481,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63F482D4291225D1005F5F5B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 634666BE28FE6740004AD934 /* Project object */;
 }

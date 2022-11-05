@@ -9,10 +9,18 @@ import SwiftUI
 
 struct GroupCell: View {
     @State private var groupName: String = "Group Name"
+    @State var group: Friends = Friends(name: "Путин", imageName: "flag.2.crossed")
+    @State private var isPresented = false
+    
     var body: some View {
         ScrollView {
-            GroupTableCell(userName: "ВКонтакте", logo: Image("VKlogo"), cellHeight: 60)
-
+            GroupTableCell(userName: group.name, logo: Image(systemName: group.imageName), cellHeight: 60)
+                .navigationDestination(isPresented: $isPresented) {
+                    FriendsCellView(friends: group)
+                }
+                .onTapGesture {
+                    self.isPresented = true
+                }
         }
     }
     
@@ -49,12 +57,12 @@ struct GroupTableCell: View {
 }
 
 // Для превью FriendsCell
-struct GroupCell_Preview: PreviewProvider {
-    
-    static var previews: some View {
-        
-        GroupCell()
-        
-    }
-}
+//struct GroupCell_Preview: PreviewProvider {
+//    
+//    static var previews: some View {
+//        
+//        GroupCell()
+//        
+//    }
+//}
 
