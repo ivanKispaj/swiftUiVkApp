@@ -16,20 +16,21 @@ enum AuthData: String {
 struct VKLoginView: View {
     @State var isLogedIn: Bool = false
     private let pub = NotificationCenter.default
-                .publisher(for: NSNotification.Name("vkTokenSaved"))
-
-    var body: some View {
+        .publisher(for: NSNotification.Name("vkTokenSaved"))
     
-      
+    var body: some View {
+        
         ZStack {
             VKLoginWebView()
         }
         .fullScreenCover(isPresented: $isLogedIn, content: {
             TabBarView()
+
         })
         .onReceive(pub) { _ in
             self.isLogedIn = true
         }
+
     }
 }
 
@@ -38,16 +39,16 @@ struct VKLoginWebView: UIViewRepresentable {
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.navigationDelegate = navigationDelegate
-        return webView
+            let webView = WKWebView()
+            webView.navigationDelegate = navigationDelegate
+            return webView
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        if let request = buildAuthRequest() {
-        uiView.load(request)
-       
-        }
+  
+            if let request = buildAuthRequest() {
+                uiView.load(request)
+            }
     }
     
     private func buildAuthRequest() -> URLRequest? {
@@ -56,7 +57,7 @@ struct VKLoginWebView: UIViewRepresentable {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: "8140649"), // ID приложения 8140649, 8142951, 8134649, 8146635
+            URLQueryItem(name: "client_id", value: "8142951"), // ID приложения 8140649, 8142951, 8134649, 8146635
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "scope", value: "offline, friends, groups, photos, wall, status, video"),
@@ -70,12 +71,12 @@ struct VKLoginWebView: UIViewRepresentable {
 }
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
-
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
-//            print("Error !!!!!!")
+            //            print("Error !!!!!!")
             decisionHandler(.allow)
             return
         }
@@ -103,7 +104,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         UserDefaults.standard.set(token, forKey: AuthData.token.rawValue)
         UserDefaults.standard.set(userIdString, forKey: AuthData.userId.rawValue)
         NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
-
+        
         decisionHandler(.cancel)
         
         

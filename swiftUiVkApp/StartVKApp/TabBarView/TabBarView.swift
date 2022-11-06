@@ -22,8 +22,8 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Friends", systemImage: "person.2.badge.gearshape.fill")
                 }
+
             GroupCell()
-          //  EmptyView()
                 .badge("!")
                 .tabItem {
                     Label("Groups", systemImage: "person.3.fill")

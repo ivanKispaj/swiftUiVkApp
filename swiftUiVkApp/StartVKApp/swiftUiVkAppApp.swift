@@ -11,10 +11,17 @@ import SwiftUI
 import WebKit
 @main
 struct swiftUiVkAppApp: App {
+
+   
     var body: some Scene {
         WindowGroup {
-               VKLoginView()
-
+            NavigationView {
+                if  UserDefaults.standard.string(forKey: "token") != nil {
+                    TabBarView()
+                } else {
+                    VKLoginView()
+                }
+            }
         }
     }
 }

@@ -7,24 +7,23 @@
 
 import SwiftUI
 import Combine
-import Kingfisher
 struct FriendsCellView: View {
     @State private var userName: String = "User Full Name"
     @State var friend: Friend
     @State var isSelected = false
     var body: some View {
 
-        ScrollView {
+
             FriendTableCell(friend: friend)
-                
                 .navigationDestination(isPresented: $isSelected) {
                  //   GroupCell(group: friends)
                     EmptyView()
+                        .navigationTitle(friend.userName)
                 }
+
                 .onTapGesture {
                     self.isSelected = true
                 }
-        }
     }
     
 }
@@ -35,10 +34,9 @@ struct FriendTableCell: View {
     let color: Color
     let friend: Friend
     let logo: Image = Image(systemName: "photo")
-//    let userName: String
-//    let logo: Image
+
     
-    init(friend: Friend, cellHeight: CGFloat = 60, cellBackGround: Color = .gray)  {
+    init(friend: Friend, cellHeight: CGFloat = 50, cellBackGround: Color = .gray)  {
         self.friend = friend
         self.cellHeight = cellHeight
         self.color = cellBackGround
@@ -46,24 +44,21 @@ struct FriendTableCell: View {
     }
     
     var body: some View {
-        
-        HStack(alignment: .center) {
+        HStack {
+            VStack {
             
-            if let image = UIImage(data: self.friend.photo) {
-                CustomImageLogo(content: {
-                    Image(uiImage: image)
-                })
-                .padding(.leading, 20)
-              
-            } else {
-                CustomImageLogo(content: {
-                    Image(systemName: "photo")
-                })
-                .padding(.leading, 20)
-                
+                if let image = UIImage(data: self.friend.photo) {
+                    CustomImageLogo(content: {
+                        Image(uiImage: image)
+                    })
+                  
+                } else {
+                    CustomImageLogo(content: {
+                        Image(systemName: "photo")
+                    })
+                    
+                }
             }
-                
-         
           
             VStack(alignment: .leading) {
                     Text(friend.userName)
@@ -90,11 +85,11 @@ struct FriendTableCell: View {
             
             Spacer()
         }
+      
         .frame(height: cellHeight)
-        .background(color.opacity(0.3))
-        .border(.blue,width: 1)
-        .cornerRadius(3)
+
     }
+    
 }
 
 

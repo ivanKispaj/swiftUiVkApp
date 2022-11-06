@@ -22,7 +22,6 @@
 		63B00BE529168B63001A34D6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63B00BE429168B63001A34D6 /* RealmSwift */; };
 		63B00BE829168C51001A34D6 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BE729168C51001A34D6 /* RealmService.swift */; };
 		63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBC25829118C1B00F7EF78 /* VKLoginScene.swift */; };
-		63F482D5291225D1005F5F5B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63F482D4291225D1005F5F5B /* Kingfisher */; };
 		63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */; };
 		63F5DAC6290E4C6C004D0CB4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC5290E4C6C004D0CB4 /* TabBarView.swift */; };
 		63F5DAC8290E4CD6004D0CB4 /* NewsSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC7290E4CD6004D0CB4 /* NewsSceneView.swift */; };
@@ -59,7 +58,6 @@
 			files = (
 				63B00BE529168B63001A34D6 /* RealmSwift in Frameworks */,
 				63B00BE329168B63001A34D6 /* Realm in Frameworks */,
-				63F482D5291225D1005F5F5B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +259,6 @@
 			);
 			name = swiftUiVkApp;
 			packageProductDependencies = (
-				63F482D4291225D1005F5F5B /* Kingfisher */,
 				63B00BE229168B63001A34D6 /* Realm */,
 				63B00BE429168B63001A34D6 /* RealmSwift */,
 			);
@@ -294,7 +291,6 @@
 			);
 			mainGroup = 634666BD28FE6740004AD934;
 			packageReferences = (
-				63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 634666C728FE6740004AD934 /* Products */;
@@ -551,14 +547,6 @@
 				kind = branch;
 			};
 		};
-		63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -571,11 +559,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		63F482D4291225D1005F5F5B /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63F482D3291225D1005F5F5B /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
