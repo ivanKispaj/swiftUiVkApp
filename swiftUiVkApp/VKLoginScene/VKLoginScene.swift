@@ -8,39 +8,50 @@
 import SwiftUI
 import WebKit
 
-enum AuthData: String {
-    case token = "vkToken"
-    case userId = "userId"
-}
-
 struct VKLoginView: View {
     @State var isLogedIn: Bool = false
+    @EnvironmentObject var userData: UserRegistrationData
+    @State private var token = ""
+    @State private var userId = ""
+    
     private let pub = NotificationCenter.default
         .publisher(for: NSNotification.Name("vkTokenSaved"))
     
     var body: some View {
-        
-        ZStack {
-            VKLoginWebView()
-        }
-        .fullScreenCover(isPresented: $isLogedIn, content: {
-            TabBarView()
+      
+    
+            ZStack {
+                if isLogedIn {
+                    TabBarView()
+                        .environmentObject(UserRegistrationData(token: token, userId: userId))
 
-        })
-        .onReceive(pub) { _ in
-            self.isLogedIn = true
+                } else {
+                    VKLoginWebView()
+
+                }
+                   
+            }
+            .onReceive(pub) { _ in
+                guard let token = UserDefaults.standard.string(forKey: "token"),
+                      let userId = UserDefaults.standard.string(forKey: "userId") else { return }
+                self.token = token
+                self.userId = userId
+                self.isLogedIn = true
+            }
         }
 
     }
-}
+
 
 struct VKLoginWebView: UIViewRepresentable {
     
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
+        
             let webView = WKWebView()
             webView.navigationDelegate = navigationDelegate
+        
             return webView
     }
     
@@ -57,7 +68,7 @@ struct VKLoginWebView: UIViewRepresentable {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: "8142951"), // ID приложения 8140649, 8142951, 8134649, 8146635
+            URLQueryItem(name: "client_id", value: "8140649"), // ID приложения 8140649, 8142951, 8134649, 8146635
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "scope", value: "offline, friends, groups, photos, wall, status, video"),
@@ -101,8 +112,9 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
             return
         }
         
-        UserDefaults.standard.set(token, forKey: AuthData.token.rawValue)
-        UserDefaults.standard.set(userIdString, forKey: AuthData.userId.rawValue)
+        UserDefaults.standard.set(token, forKey: "token")
+        UserDefaults.standard.set(userIdString, forKey: "userId")
+        
         NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
         
         decisionHandler(.cancel)

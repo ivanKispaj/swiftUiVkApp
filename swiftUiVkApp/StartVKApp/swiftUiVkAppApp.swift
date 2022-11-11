@@ -11,18 +11,29 @@ import SwiftUI
 import WebKit
 @main
 struct swiftUiVkAppApp: App {
-
-   
+    
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if  UserDefaults.standard.string(forKey: "token") != nil {
+                if let token = UserDefaults.standard.string(forKey: "token"),
+                   let userId = UserDefaults.standard.string(forKey: "userId")
+                {
                     TabBarView()
+                        .environmentObject(UserRegistrationData(token: token, userId: userId))
                 } else {
                     VKLoginView()
                 }
-            }
+               
         }
     }
 }
 
+
+final class UserRegistrationData: ObservableObject {
+    let token: String
+    let userId: String
+    
+    init(token: String, userId: String) {
+        self.token = token
+        self.userId = userId
+    }
+}

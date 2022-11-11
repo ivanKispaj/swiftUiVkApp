@@ -14,6 +14,7 @@ struct NewsSceneView: View {
     @State var path = NavigationPath()
     @State private var selection: String = ""
     @State private var ispresent = false
+    
     var body: some View {
         NavigationStack {
      
@@ -36,58 +37,26 @@ struct NewsSceneView: View {
                     self.selection = "Third"
                     
                 }
+                
+                Button {
+                    print("action/label")
+                } label: {
+                    VStack{
+                        Text("Trash")
+                        Image(systemName: "trash")
+                    }
+
+                }
+
                 Spacer()
             }
             .navigationTitle("News")
             .navigationBarTitleDisplayMode(.inline)
         }
-  
-        
-       
-   
-     
-
-
-        
-
-        
-        
-        
-        
-        
+ 
     }
-    
-    //   }
-    //          //  NavigationLink(destination: NewsSceneView2(), tag: "Second", selection: $selection) {
-    //
-    //
-    //            }
-    //            .navigationBarTitleDisplayMode(.inline)
-    //            .navigationTitle(selection ?? "NIl")
-    //
-    //
-    
-    
-    //   }
 }
 
-//
-//struct NewsSceneView: View {
-//
-//    @State var isActive = true
-//
-//    var body: some View {
-//        ZStack {
-//
-//            NavigationLink(destination: NewsSceneView2(), isActive: $isActive) {
-//
-//            }
-//        }
-//        .background(Image(systemName: "homekit"))
-//        }
-//
-//
-//    }
 
 
 struct NewsSceneView2: View {

@@ -35,7 +35,7 @@ final class FriendsViewModel: ObservableObject {
                     groupedFiends.append(GroupedFiends(header: str, rows: [friend]))
                 }
             }
-          
+            self.groupedFiends = self.groupedFiends.sorted(by: {$0.header < $1.header})
         }
     }
 }
