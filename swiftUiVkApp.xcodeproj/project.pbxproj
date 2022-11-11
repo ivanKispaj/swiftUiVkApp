@@ -15,7 +15,6 @@
 		634666FA29079872004AD934 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666F929079872004AD934 /* CircleShadow.swift */; };
 		634666FD290855C1004AD934 /* CustomImageLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666FC290855C1004AD934 /* CustomImageLogo.swift */; };
 		63B006CC29167A38001A34D6 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B006CB29167A38001A34D6 /* FriendsViewModel.swift */; };
-		63B006CE29167B09001A34D6 /* FriendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B006CD29167B09001A34D6 /* FriendDataModel.swift */; };
 		63B00BDD29168778001A34D6 /* LoadAndSaveFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */; };
 		63B00BDE29168778001A34D6 /* InternetConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B00BDA29168778001A34D6 /* InternetConnections.swift */; };
 		63B00BE329168B63001A34D6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 63B00BE229168B63001A34D6 /* Realm */; };
@@ -39,7 +38,6 @@
 		634666F929079872004AD934 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
 		634666FC290855C1004AD934 /* CustomImageLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageLogo.swift; sourceTree = "<group>"; };
 		63B006CB29167A38001A34D6 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
-		63B006CD29167B09001A34D6 /* FriendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDataModel.swift; sourceTree = "<group>"; };
 		63B00BD929168778001A34D6 /* LoadAndSaveFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadAndSaveFriends.swift; sourceTree = "<group>"; };
 		63B00BDA29168778001A34D6 /* InternetConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnections.swift; sourceTree = "<group>"; };
 		63B00BE729168C51001A34D6 /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				63F5DACE290EE26A004D0CB4 /* FriendsModel.swift */,
-				63B006CD29167B09001A34D6 /* FriendDataModel.swift */,
 			);
 			path = FirendsModel;
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 			files = (
 				634666FA29079872004AD934 /* CircleShadow.swift in Sources */,
 				63EBC25929118C1B00F7EF78 /* VKLoginScene.swift in Sources */,
-				63B006CE29167B09001A34D6 /* FriendDataModel.swift in Sources */,
 				63F5DAC6290E4C6C004D0CB4 /* TabBarView.swift in Sources */,
 				634666F5290700D8004AD934 /* FriendsCellView.swift in Sources */,
 				634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */,
