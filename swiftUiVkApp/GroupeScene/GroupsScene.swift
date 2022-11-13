@@ -20,11 +20,11 @@ struct GroupsScene: View {
                 List(service.groups) { group in
                     
                     GroupTableCell(groupName: group.groupName, logo: group.photoGroup,cellHeight: 50)
-                        
+                    
                 }
                 .frame( maxWidth: .infinity)
                 .listStyle(GroupedListStyle())
-               
+                
             }
             .navigationTitle("Groups")
             .navigationBarTitleDisplayMode(.inline)

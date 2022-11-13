@@ -6,39 +6,21 @@
 //
 
 import SwiftUI
-import Combine
-struct FriendsCellView: View {
-    @State private var userName: String = "User Full Name"
-    @State var friend: Friend
-    @State var isSelected = false
-    var body: some View {
-
-
-            FriendTableCell(friend: friend)
-                .navigationDestination(isPresented: $isSelected) {
-                 //   GroupCell(group: friends)
-                    EmptyView()
-                        .navigationTitle(friend.userName)
-                }
-
-                .onTapGesture {
-                    self.isSelected = true
-                }
-    }
-    
-}
-
 
 struct FriendTableCell: View {
     let cellHeight: CGFloat
     let color: Color
     let friend: Friend
-    let logo: Image = Image(systemName: "photo")
-
-    @State var isScaled: Bool = false
+    let logo: Image
+    @State var isSelected: Bool = false
     
     init(friend: Friend, cellHeight: CGFloat = 50, cellBackGround: Color = .gray)  {
         self.friend = friend
+        if let image = UIImage(data: friend.photo) {
+            self.logo = Image(uiImage: image)
+        } else {
+            self.logo = Image(systemName: "image")
+        }
         self.cellHeight = cellHeight
         self.color = cellBackGround
         
@@ -51,8 +33,6 @@ struct FriendTableCell: View {
                 if let image = UIImage(data: self.friend.photo) {
                     CustomImageLogo(content: {
                         Image(uiImage: image)
-                           
-                            
                     })
                 } else {
                     CustomImageLogo(content: {
@@ -62,8 +42,6 @@ struct FriendTableCell: View {
                 }
             }
            
-           
-          
             VStack(alignment: .leading) {
                     Text(friend.userName)
                 HStack {
@@ -88,6 +66,13 @@ struct FriendTableCell: View {
                 .padding(.leading, 15)
             
             Spacer()
+        }
+        .navigationDestination(isPresented: $isSelected) {
+            EmptyView()
+                .navigationTitle(friend.userName)
+        }
+        .onTapGesture {
+            isSelected = true
         }
         .listRowBackground(
                             RoundedRectangle(cornerRadius: 5)

@@ -105,6 +105,13 @@
 			path = GroupsViewModel;
 			sourceTree = "<group>";
 		};
+		630B97B72920E56300244FC6 /* AboutAFriends */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AboutAFriends;
+			sourceTree = "<group>";
+		};
 		634666BD28FE6740004AD934 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +135,7 @@
 				63B006C92916738B001A34D6 /* StartVKApp */,
 				63EBC25729118BFD00F7EF78 /* VKLoginScene */,
 				63F5DAC9290EE218004D0CB4 /* FriendsScene */,
+				630B97B72920E56300244FC6 /* AboutAFriends */,
 				630B97AB2920D36B00244FC6 /* GroupeScene */,
 				63F5DAC1290ADA1F004D0CB4 /* NewsScene */,
 				634666FB290855A7004AD934 /* CustomView */,

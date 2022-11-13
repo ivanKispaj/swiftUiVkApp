@@ -14,6 +14,7 @@ struct FriendsScene: View {
     @EnvironmentObject var userData: UserRegistrationData
     @ObservedObject var viewModel: FriendsViewModel
     @State private var isloadedFriend = false
+    @State var isSelected = false
     
     init(viewModel: FriendsViewModel) {
         self.viewModel = viewModel
@@ -29,7 +30,8 @@ struct FriendsScene: View {
                                     Text(item.header)
                         ){
                             ForEach(item.rows, id: \.self) { friend in
-                                FriendsCellView(friend: friend)
+                                
+                                FriendTableCell(friend: friend)
                                     .swipeActions(content: {
                                         VStack {
                                             Text("delite")
@@ -42,15 +44,13 @@ struct FriendsScene: View {
                                             
                                         }
                                     })
-
-                                
+                                 
                             }
                            
                         }
                     }
                     
                 }
-                
                 .frame( maxWidth: .infinity)
                 .listStyle(GroupedListStyle())
                 
@@ -60,7 +60,6 @@ struct FriendsScene: View {
             .navigationBarTitleDisplayMode(.inline)
             
         })
-        
         .onAppear {
             if !isloadedFriend {
                 viewModel.internetConnection.loadFriends(for: userData.userId,token: userData.token) { response in
