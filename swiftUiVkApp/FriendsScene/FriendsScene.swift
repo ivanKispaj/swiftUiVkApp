@@ -45,7 +45,7 @@ struct FriendsScene: View {
 
                                 
                             }
-                            .listRowBackground(Color.gray.opacity(0.2))
+                           
                         }
                     }
                     

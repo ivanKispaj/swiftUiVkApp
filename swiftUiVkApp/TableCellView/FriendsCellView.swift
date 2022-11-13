@@ -58,7 +58,6 @@ struct FriendTableCell: View {
                     CustomImageLogo(content: {
                         Image(systemName: "photo")
                     })
-                    .scaleEffect(isScaled ? 0.01 : 1)
                     
                 }
             }
@@ -90,7 +89,20 @@ struct FriendTableCell: View {
             
             Spacer()
         }
-      
+        .listRowBackground(
+                            RoundedRectangle(cornerRadius: 5)
+                                .background(.clear)
+                                .foregroundColor(.gray.opacity(0.2))
+                                .padding(
+                                    EdgeInsets(
+                                        top: 2,
+                                        leading: 0,
+                                        bottom: 2,
+                                        trailing: 0
+                                    )
+                                )
+                        )
+                        .listRowSeparator(.hidden)
         .frame(height: cellHeight)
 
     }
