@@ -18,8 +18,7 @@ struct  CustomImageLogo: View {
     var body: some View {
      
             content
-                .frame(width: 40 ,height: 40)
-                .modifier(CircleShadow(color: .blue, circleRadius: 50, shadowRadius: 8))
+            .circleShadow()
                 .scaleEffect(isRotated ? 0.6 : 1)
                 .onTapGesture {
                     isRotated.toggle()
@@ -28,5 +27,6 @@ struct  CustomImageLogo: View {
                       
                     }
                 }
+                
     }
 }

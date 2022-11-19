@@ -9,19 +9,19 @@ import SwiftUI
 
 
 struct GroupTableCell: View {
-    let cellHeight: CGFloat
+    let rowHeight: CGFloat
     let color: Color
     let groupName: String
     let logo: Image
     
-    init(groupName: String, logo: Data, cellHeight: CGFloat = 80, cellBackGround: Color = .gray)  {
+    init(groupName: String, logo: Data, rowHeight: CGFloat = 80, cellBackGround: Color = .gray)  {
         self.groupName = groupName
         if let image = UIImage(data: logo) {
             self.logo = Image(uiImage: image)
         } else {
             self.logo = Image(systemName: "image")
         }
-        self.cellHeight = cellHeight
+        self.rowHeight = rowHeight
         self.color = cellBackGround
     }
     
@@ -31,26 +31,13 @@ struct GroupTableCell: View {
             CustomImageLogo(content: {
                 logo
             })
-            .frame(minHeight: cellHeight)
-           // .padding(.leading, 20)
+            .padding(.leading, 10)
             Text(groupName)
                 .padding(.leading,15)
             Spacer()
         }
-        .listRowBackground(
-                            RoundedRectangle(cornerRadius: 5)
-                                .background(.clear)
-                                .foregroundColor(.gray.opacity(0.2))
-                                .padding(
-                                    EdgeInsets(
-                                        top: 2,
-                                        leading: 0,
-                                        bottom: 2,
-                                        trailing: 0
-                                    )
-                                )
-                        )
-                        .listRowSeparator(.hidden)
+        .frame(height: rowHeight)
+        .background(Color.gray.opacity(0.2))
     }
 }
 

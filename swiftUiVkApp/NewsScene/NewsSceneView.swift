@@ -11,7 +11,6 @@ import SwiftUI
 
 struct NewsSceneView: View {
     
-    @State var path = NavigationPath()
     @State private var selection: String = ""
     @State private var ispresent = false
     

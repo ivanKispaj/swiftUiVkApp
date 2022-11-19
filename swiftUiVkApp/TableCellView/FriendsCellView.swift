@@ -8,43 +8,41 @@
 import SwiftUI
 
 struct FriendTableCell: View {
-    let cellHeight: CGFloat
+    let rowHeight: CGFloat
     let color: Color
     let friend: Friend
     let logo: Image
     @State var isSelected: Bool = false
     
-    init(friend: Friend, cellHeight: CGFloat = 50, cellBackGround: Color = .gray)  {
+    init(friend: Friend, rowHeight: CGFloat, cellBackGround: Color = .gray)  {
         self.friend = friend
         if let image = UIImage(data: friend.photo) {
             self.logo = Image(uiImage: image)
         } else {
             self.logo = Image(systemName: "image")
         }
-        self.cellHeight = cellHeight
+        self.rowHeight = rowHeight
         self.color = cellBackGround
         
     }
     
     var body: some View {
-        HStack {
-            VStack {
-            
+        HStack(spacing: 0) {
+
                 if let image = UIImage(data: self.friend.photo) {
                     CustomImageLogo(content: {
                         Image(uiImage: image)
                     })
+                    .padding(.leading,10)
                 } else {
                     CustomImageLogo(content: {
                         Image(systemName: "photo")
                     })
                     
                 }
-            }
-           
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading,spacing: 0) {
                     Text(friend.userName)
-                HStack {
+                HStack(spacing: 0) {
                     Text(friend.city)
                         .font(.subheadline)
                         .fontWeight(.ultraLight)
@@ -74,21 +72,8 @@ struct FriendTableCell: View {
         .onTapGesture {
             isSelected = true
         }
-        .listRowBackground(
-                            RoundedRectangle(cornerRadius: 5)
-                                .background(.clear)
-                                .foregroundColor(.gray.opacity(0.2))
-                                .padding(
-                                    EdgeInsets(
-                                        top: 2,
-                                        leading: 0,
-                                        bottom: 2,
-                                        trailing: 0
-                                    )
-                                )
-                        )
-                        .listRowSeparator(.hidden)
-        .frame(height: cellHeight)
+        .frame(height: rowHeight)
+        .background(Color.gray.opacity(0.2))
 
     }
     

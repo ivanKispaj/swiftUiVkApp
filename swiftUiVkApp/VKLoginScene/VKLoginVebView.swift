@@ -1,47 +1,12 @@
 //
-//  VKLoginScene.swift
+//  VKLoginVebView.swift
 //  swiftUiVkApp
 //
-//  Created by Ivan Konishchev on 01.11.2022.
+//  Created by Ivan Konishchev on 19.11.2022.
 //
 
-import SwiftUI
 import WebKit
-
-struct VKLoginView: View {
-    @State var isLogedIn: Bool = false
-    @EnvironmentObject var userData: UserRegistrationData
-    @State private var token = ""
-    @State private var userId = ""
-    
-    private let pub = NotificationCenter.default
-        .publisher(for: NSNotification.Name("vkTokenSaved"))
-    
-    var body: some View {
-      
-    
-            ZStack {
-                if isLogedIn {
-                    TabBarView()
-                        .environmentObject(UserRegistrationData(token: token, userId: userId))
-
-                } else {
-                    VKLoginWebView()
-
-                }
-                   
-            }
-            .onReceive(pub) { _ in
-                guard let token = UserDefaults.standard.string(forKey: "token"),
-                      let userId = UserDefaults.standard.string(forKey: "userId") else { return }
-                self.token = token
-                self.userId = userId
-                self.isLogedIn = true
-            }
-        }
-
-    }
-
+import SwiftUI
 
 struct VKLoginWebView: UIViewRepresentable {
     
@@ -49,17 +14,17 @@ struct VKLoginWebView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> WKWebView {
         
-            let webView = WKWebView()
-            webView.navigationDelegate = navigationDelegate
+        let webView = WKWebView()
+        webView.navigationDelegate = navigationDelegate
         
-            return webView
+        return webView
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-  
-            if let request = buildAuthRequest() {
-                uiView.load(request)
-            }
+        
+        if let request = buildAuthRequest() {
+            uiView.load(request)
+        }
     }
     
     private func buildAuthRequest() -> URLRequest? {
@@ -68,7 +33,7 @@ struct VKLoginWebView: UIViewRepresentable {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: "8140649"), // ID приложения 8140649, 8142951, 8134649, 8146635
+            URLQueryItem(name: "client_id", value: "8146635"), // ID приложения 8140649, 8142951, 8134649, 8146635
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "scope", value: "offline, friends, groups, photos, wall, status, video"),
@@ -87,7 +52,6 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
-            //            print("Error !!!!!!")
             decisionHandler(.allow)
             return
         }
@@ -114,25 +78,10 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         
         UserDefaults.standard.set(token, forKey: "token")
         UserDefaults.standard.set(userIdString, forKey: "userId")
-        
         NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
         
         decisionHandler(.cancel)
         
         
     }
-    
-    
 }
-
-
-
-//// Для превью FriendsCell
-//struct FriendsCell_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        VKLoginView()
-//
-//    }
-//}
