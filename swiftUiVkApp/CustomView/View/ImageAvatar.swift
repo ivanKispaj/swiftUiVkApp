@@ -8,9 +8,10 @@
 import SwiftUI
 
 //MARK: logo View
-struct  CustomImageLogo: View {
+struct  ImageAvatar: View {
     var content: Image
     @State var isRotated: Bool = false
+    
     init(@ViewBuilder content: () -> Image) {
         self.content = content()
     }

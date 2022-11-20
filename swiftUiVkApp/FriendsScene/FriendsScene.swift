@@ -10,7 +10,7 @@ import UIKit
 
 
 struct FriendsScene: View {
-    
+    @State private var isSideBarOpened = false
     @EnvironmentObject var userData: UserRegistrationData
     @ObservedObject var viewModel: FriendsViewModel
     @State private var isloadedFriend = false
@@ -22,9 +22,9 @@ struct FriendsScene: View {
     }
     
     var body: some View {
-        
-        NavigationStack(root: {
-              
+        ZStack {
+            NavigationStack(root: {
+                
                 List {
                     ForEach(self.viewModel.groupedFiends, id: \.self) { item in
                         Section(header:
@@ -36,13 +36,13 @@ struct FriendsScene: View {
                                     .swipeAction(leading: [
                                         SwipeItem(
                                             image: {
-                                            Image(systemName: "trash")
-                                        }, label: {
-                                            Text("Delite")
-                                        }, action: {
-                                            print("delite")
-                                        }, itemColor: .red)
-                                    ,
+                                                Image(systemName: "trash")
+                                            }, label: {
+                                                Text("Delite")
+                                            }, action: {
+                                                print("delite")
+                                            }, itemColor: .red)
+                                        ,
                                         SwipeItem(image: {
                                             Image(systemName: "heart")
                                         },label: {
@@ -50,7 +50,7 @@ struct FriendsScene: View {
                                         }, action: {
                                             print("like")
                                         },itemWidth: 60 ,itemColor: .red)
-                                    ,
+                                        ,
                                         
                                     ],rowHeight: self.rowHeight)
                                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
@@ -58,30 +58,33 @@ struct FriendsScene: View {
                                     .listRowBackground(Color.clear)
                                 
                             }
-                           
+                            
                         }
                     }
                     
                 }
-            
+                
                 .navigationTitle("Друзья")
                 .navigationBarTitleDisplayMode(.inline)
                 .listStyle(GroupedListStyle())
-                    
-            
-        })
-        .onAppear {
-            if !isloadedFriend {
-                viewModel.internetConnection.loadFriends(for: userData.userId,token: userData.token) { response in
-                    self.isloadedFriend.toggle()
-                    DispatchQueue.main.async {
-                        self.viewModel.setGroupedFriends(from: response)
+                
+                
+            })
+            .onAppear {
+                if !isloadedFriend {
+                    viewModel.internetConnection.loadFriends(for: userData.userId,token: userData.token) { response in
+                        self.isloadedFriend.toggle()
+                        DispatchQueue.main.async {
+                            self.viewModel.setGroupedFriends(from: response)
+                        }
                     }
                 }
             }
+            SidebarMenu(isSidebarVisible: $isSideBarOpened)
         }
+        
     }
-
+    
 }
 
 

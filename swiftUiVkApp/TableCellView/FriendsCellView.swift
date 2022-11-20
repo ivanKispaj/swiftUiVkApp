@@ -30,12 +30,12 @@ struct FriendTableCell: View {
         HStack(spacing: 0) {
 
                 if let image = UIImage(data: self.friend.photo) {
-                    CustomImageLogo(content: {
+                    ImageAvatar(content: {
                         Image(uiImage: image)
                     })
                     .padding(.leading,10)
                 } else {
-                    CustomImageLogo(content: {
+                    ImageAvatar(content: {
                         Image(systemName: "photo")
                     })
                     

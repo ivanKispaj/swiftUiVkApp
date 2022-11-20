@@ -28,7 +28,7 @@ struct GroupTableCell: View {
     var body: some View {
         
         HStack {
-            CustomImageLogo(content: {
+            ImageAvatar(content: {
                 logo
             })
             .padding(.leading, 10)

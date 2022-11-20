@@ -21,8 +21,11 @@ struct SetCodeAuthentificate: View {
                 .ignoresSafeArea()
             HStack {
                 VStack() {
-                    Text("Введите пароль")
+                    
+                    Text("Установите пароль")
+                    Text(" для входа!")
                         .padding(.bottom, 10)
+                    
                     HStack(alignment: .center) {
                         
                         if let text = code.first, code.count >= 1 {
@@ -75,7 +78,7 @@ struct SetCodeAuthentificate: View {
                     .padding()
                     .frame(height: 30)
                     
-                    Toggle("Использовать \(bioType.rawValue)", isOn: $checked)
+                    Toggle("Использовать \(bioType.rawValue) ?", isOn: $checked)
                         .onChange(of: checked) { newValue in
                             self.checked = newValue
                         }

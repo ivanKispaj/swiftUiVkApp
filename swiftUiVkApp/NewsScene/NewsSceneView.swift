@@ -11,62 +11,76 @@ import SwiftUI
 
 struct NewsSceneView: View {
     
-    @State private var selection: String = ""
-    @State private var ispresent = false
+    @State private var isSideBarOpened = false
     
     var body: some View {
-        NavigationStack {
-     
-            NavigationLink("") {
-                NewsSceneView2()
-            }
-            .navigationDestination(isPresented: $ispresent) {
-                NewsSceneView2()
+        
+        ZStack {
+            NavigationView {
+                Text("News Scene")
+                    .listStyle(.inset)
+                    .navigationTitle("Home")
+                    .navigationBarTitleDisplayMode(.inline)
             }
             
-            VStack {
-                Text(selection)
-                Spacer()
-                Button("Tap to show second") {
-                    self.selection = "Second"
-                }
-                Text("")
-                Button("Tap to show third") {
-                    self.ispresent = true
-                    self.selection = "Third"
-                    
-                }
-                
-                Button {
-                    print("action/label")
-                } label: {
-                    VStack{
-                        Text("Trash")
-                        Image(systemName: "trash")
-                    }
-
-                }
-
-                Spacer()
-            }
-            .navigationTitle("News")
-            .navigationBarTitleDisplayMode(.inline)
+            SidebarMenu(isSidebarVisible: $isSideBarOpened)
         }
- 
+
+        
+        //        let drag = DragGesture()
+        //            .onEnded {
+        //                if $0.translation.width < -50 {
+        //                    withAnimation {
+        //                        self.showMenu = false
+        //                    }
+        //                }
+        //            }
+        //
+        //        return NavigationView {
+        //            GeometryReader { geometry in
+        //                ZStack(alignment: .leading) {
+        //                    MainView(showMenu: self.$showMenu)
+        //                        .frame(width: geometry.size.width, height: geometry.size.height)
+        //                        .offset(x: self.showMenu ? geometry.size.width/2 : 0)
+        //                        .disabled(self.showMenu ? true : false)
+        //                    if self.showMenu {
+        //                        MenuView()
+        //                            .frame(width: geometry.size.width - geometry.size.width / 4)
+        //                            .transition(.move(edge: .leading))
+        //                    }
+        //                }
+        //                    .gesture(drag)
+        //            }
+        //                .navigationBarTitle("Side Menu", displayMode: .inline)
+        //                .navigationBarItems(leading: (
+        //                    Button(action: {
+        //                        withAnimation {
+        //                            self.showMenu.toggle()
+        //                        }
+        //                    }) {
+        //                        Image(systemName: "line.horizontal.3")
+        //                            .imageScale(.large)
+        //                    }
+        //                ))
+        //        }
     }
+    
 }
 
 
 
-struct NewsSceneView2: View {
+struct MainView: View {
+    
+    @Binding var showMenu: Bool
     
     var body: some View {
-        ZStack {
-            
+        Button(action: {
+            withAnimation {
+                self.showMenu = true
+            }
+        }) {
+            Text("Show Menu")
         }
-        .background(Image(systemName: "music.note.house.fill"))
-        
-        .navigationTitle("News2")
     }
 }
 

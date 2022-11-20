@@ -10,6 +10,7 @@ import SwiftUI
 import LocalAuthentication
 
 struct Authorization: View {
+    
     enum AuthType: Hashable {
         case biometrics
         case code
@@ -18,13 +19,14 @@ struct Authorization: View {
     
     @State var code: String = ""
     @ObservedObject private var authViewModel: AuthorizationModel = AuthorizationModel()
-    @State private(set) var isUnlocked: Bool = false
+    @State var isUnlocked: Bool = false
     @State private var isRightCode = false
     @State var authType: AuthType = .none
     
     var body: some View {
         
         if authViewModel.token.isEmpty {
+            
                 VKLoginView(isUnlocked: $isUnlocked, authModel: authViewModel)
 
             
@@ -32,7 +34,7 @@ struct Authorization: View {
             if authViewModel.isUnlocked {
                 // UNLOCKED!
                 TabBarView()
-                    .environmentObject(UserRegistrationData(token: authViewModel.token, userId: authViewModel.userId))
+                    .environmentObject(UserRegistrationData(token: authViewModel.token, userId: authViewModel.userId, isUsedBiometrics: authViewModel.isBiometricAuthorization, typeBiometric: authViewModel.biometricType,authModel: self.authViewModel))
                 
             } else {
                 
@@ -44,7 +46,7 @@ struct Authorization: View {
                         Text("Authentificate!")
                     }
                     .task {
-                        await  self.authViewModel.authenticate { result in
+                        await  self.authViewModel.authentificate { result in
                             if !result {
                                 authType = .code
                             }
@@ -58,7 +60,7 @@ struct Authorization: View {
                         Text("Авторизация")
                     }
                     .onAppear {
-                        self.authType = self.authViewModel.isbiometricAuthorization == true ? .biometrics : .code
+                        self.authType = self.authViewModel.isBiometricAuthorization == true ? .biometrics : .code
                     }
                 }
             }

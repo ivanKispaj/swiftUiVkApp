@@ -20,7 +20,7 @@ struct VKLoginView: View {
         if saveCode {
             Text("")
                 .onAppear {
-                    authModel.getAuthData()
+                    authModel.updateAuthData()
                     isUnlocked = true
                 }
         } else {
@@ -35,6 +35,8 @@ struct VKLoginView: View {
                 
             }
             .onReceive(pub) { _ in
+                authModel.updateAuthData()
+                print(authModel.biometricType)
                 self.isEnterCode = true
             }
         }

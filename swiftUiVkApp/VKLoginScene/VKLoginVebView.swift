@@ -23,7 +23,7 @@ struct VKLoginWebView: UIViewRepresentable {
     func updateUIView(_ uiView: WKWebView, context: Context) {
         
         if let request = buildAuthRequest() {
-            uiView.load(request)
+                uiView.load(request)
         }
     }
     

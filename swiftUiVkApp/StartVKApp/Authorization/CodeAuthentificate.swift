@@ -14,22 +14,22 @@ struct CodeAuthentificate: View {
     @State var isWrong: Bool = false
     @FocusState private var isFocused: Bool
     @State var biometric: Bool = false
-    
+    @State private var colorBlock = Color.white
     var body: some View {
-      // BIOMETRIC AUTHORIZATION
+        // BIOMETRIC AUTHORIZATION
         if biometric {
             ZStack {
                 
             }
             .task {
-                await  authModel.authenticate { result in
+                await  authModel.authentificate { result in
                     if !result {
                         self.biometric = result
                     }
                 }
             }
         } else {
-        // CODE AUTHORIZATION
+            // CODE AUTHORIZATION
             HStack {
                 VStack {
                     Text("Введите пароль")
@@ -42,8 +42,9 @@ struct CodeAuthentificate: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.green)
                         } else {
-                            Image(systemName: "circle.fill")
+                            Image(systemName: "circle")
                                 .frame(width: 20, height: 20)
+                                .foregroundColor(colorBlock)
                         }
                         
                         if code.count >= 2 {
@@ -51,8 +52,9 @@ struct CodeAuthentificate: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.green)
                         } else {
-                            Image(systemName: "circle.fill")
+                            Image(systemName: "circle")
                                 .frame(width: 20, height: 20)
+                                .foregroundColor(colorBlock)
                         }
                         
                         if code.count >= 3 {
@@ -60,8 +62,9 @@ struct CodeAuthentificate: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.green)
                         } else {
-                            Image(systemName: "circle.fill")
+                            Image(systemName: "circle")
                                 .frame(width: 20, height: 20)
+                                .foregroundColor(colorBlock)
                         }
                         
                         if code.count >= 4 {
@@ -69,11 +72,13 @@ struct CodeAuthentificate: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.green)
                         } else {
-                            Image(systemName: "circle.fill")
+                            Image(systemName: "circle")
                                 .frame(width: 20, height: 20)
+                                .foregroundColor(colorBlock)
                         }
                         
                     }
+                    .scaleEffect(isWrong ? 1.3 : 1)
                     .padding()
                     .frame(height: 30)
                     
@@ -91,7 +96,6 @@ struct CodeAuthentificate: View {
                         }
                     }
                 }
-                .scaleEffect(isWrong ? 0.6 : 1)
                 
             }
             .onAppear {
@@ -99,27 +103,29 @@ struct CodeAuthentificate: View {
                 
             }
             .onTapGesture {
+                colorBlock = .white
                 isFocused = true
             }
+            
             .frame(width: 150)
-            .keyboardType(.decimalPad)
+            .keyboardType(.numberPad)
             .padding()
             .background(Color.blue.opacity(0.2))
             .cornerRadius(5.0)
-            .shadow(color: Color.white, radius: 8, x: -8, y: -8)
-            .shadow(color: Color.black, radius: 8, x: 8, y: 8)
- 
-//MARK: View для отображене кнопки вызова faceId or TouchId
+            .shadow(color: Color.gray, radius: 5, x: -8, y: -8)
+            .shadow(color: Color.blue, radius: 5, x: 8, y: 8)
+            
+            //MARK: View для отображене кнопки вызова faceId or TouchId
             VStack {
-                if authModel.isbiometricAuthorization  {
+                if authModel.isBiometricAuthorization  {
                     switch self.authModel.biometricType {
-                   
+                        
                     case .faceID:
                         Image(systemName: "faceid")
                             .resizable()
                             .frame(width: 40,height: 40)
                             .onTapGesture {
-                                if authModel.isbiometricAuthorization {
+                                if authModel.isBiometricAuthorization {
                                     self.biometric = true
                                 }
                             }
@@ -129,7 +135,7 @@ struct CodeAuthentificate: View {
                             .resizable()
                             .frame(width: 40,height: 40)
                             .onTapGesture {
-                                if authModel.isbiometricAuthorization {
+                                if authModel.isBiometricAuthorization {
                                     self.biometric = true
                                 }
                             }
@@ -142,19 +148,29 @@ struct CodeAuthentificate: View {
         
     }
     
-//MARK: - VERIFY  ENTER CODE
+    //MARK: - VERIFY  ENTER CODE
     private func verifyLogin() {
+        
+        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+            impactMed.impactOccurred()
         if authModel.code == self.code.toBase64() {
             self.authModel.isUnlocked = true
         } else {
             isWrong.toggle()
-            DispatchQueue.main.async {
-                withAnimation (.spring(response: 0.5,dampingFraction: 0.6)) {
-                    isWrong.toggle()
-                    self.code = ""
-                }
+            
+            withAnimation(.easeIn(duration: 0.2)) {
+                // isWrong.toggle()
+                self.code = ""
+                colorBlock = .red
             }
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                
+                withAnimation (.spring(response: 0.5,dampingFraction: 0.6)) {
+                    isWrong.toggle()
+                    colorBlock = .white
+                }
+            }
         }
     }
     
