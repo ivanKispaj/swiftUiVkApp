@@ -25,9 +25,9 @@ struct Authorization: View {
     
     var body: some View {
         
-        if authViewModel.token.isEmpty {
+        if authViewModel.token.isEmpty || authViewModel.userId.isEmpty || authViewModel.code.isEmpty {
             
-                VKLoginView(isUnlocked: $isUnlocked, authModel: authViewModel)
+                VKLoginView(authModel: authViewModel)
 
             
         } else {
@@ -54,7 +54,12 @@ struct Authorization: View {
                     }
                 case .code:
                     // CODE AUTHORIZATION
-                    CodeAuthentificate( authModel: self.authViewModel)//, isUnlocked: $isUnlocked)
+                    if authViewModel.code.isEmpty {
+                        SetCodeAuthentificate(authModel: self.authViewModel)
+                    } else {
+                        CodeAuthentificate( authModel: self.authViewModel)//, isUnlocked: $isUnlocked)
+
+                    }
                 default:
                     ZStack {
                         Text("Авторизация")

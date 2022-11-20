@@ -21,7 +21,7 @@ struct SideBarViewModel {
 
     var userActions: [MenuItem] = [
         MenuItem(id: 4001, icon: "person.circle.fill", text: "My Account", isToggle: false),
-        MenuItem(id: 4002, icon: "bag.fill", text: "Use FaceId?", isToggle: true),
+        MenuItem(id: 4002, icon: "bag.fill", text: "Использовать FaceId?", isToggle: true),
     ]
 
     var profileActions: [MenuItem] = [

@@ -153,7 +153,7 @@ struct CodeAuthentificate: View {
         
         let impactMed = UIImpactFeedbackGenerator(style: .medium)
             impactMed.impactOccurred()
-        if authModel.code == self.code.toBase64() {
+        if  authModel.code == self.code.toBase64() {
             self.authModel.isUnlocked = true
         } else {
             isWrong.toggle()

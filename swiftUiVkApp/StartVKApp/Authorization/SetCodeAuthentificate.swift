@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 struct SetCodeAuthentificate: View {
+    
     @State private var code: String = ""
     @FocusState var isFocused: Bool
     @State var checked: Bool = false
-    @Binding var saveCode: Bool
-    @State var bioType: BiometricType
+    
+    var authModel: AuthorizationModel
     var body: some View {
         
         ZStack {
@@ -77,11 +78,13 @@ struct SetCodeAuthentificate: View {
                     }
                     .padding()
                     .frame(height: 30)
+                    if self.authModel.biometricType != .none {
+                        Toggle("Использовать \(self.authModel.biometricType.rawValue) ?", isOn: $checked)
+                            .onChange(of: checked) { newValue in
+                                self.checked = newValue
+                            }
+                    }
                     
-                    Toggle("Использовать \(bioType.rawValue) ?", isOn: $checked)
-                        .onChange(of: checked) { newValue in
-                            self.checked = newValue
-                        }
                     SecureField(text: $code, prompt:
                                     Text("")
                     ) {
@@ -95,7 +98,8 @@ struct SetCodeAuthentificate: View {
                             self.code = String(newValue.prefix(4))
                             UserDefaults.standard.set(self.code.toBase64(), forKey: "authCode")
                             UserDefaults.standard.set(self.checked, forKey: "usedBiometrics")
-                            saveCode = true
+                            self.authModel.updateAuthData()
+                            self.authModel.isUnlocked = true
                             
                             
                         }

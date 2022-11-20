@@ -38,7 +38,8 @@ final class AuthorizationModel: ObservableObject {
         self.userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         self.code = UserDefaults.standard.string(forKey: "authCode") ?? ""
         self.isBiometricAuthorization = UserDefaults.standard.bool(forKey: "usedBiometrics")
-
+        
+        print(self.isBiometricAuthorization)
     }
     
     func authentificate(_ completion: @escaping(Bool)-> ()) async {

@@ -13,7 +13,7 @@ struct SidebarMenu: View {
     
     var sideBarModel: SideBarViewModel = SideBarViewModel()
     
-    var sideBarWidth = UIScreen.main.bounds.size.width * 0.7 // Ширина sideBar
+    var sideBarWidth = UIScreen.main.bounds.size.width * 0.8 // Ширина sideBar
     
     var userProfile: some View {
         
