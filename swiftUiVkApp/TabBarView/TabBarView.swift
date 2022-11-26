@@ -22,7 +22,6 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Friends", systemImage: "person.2.badge.gearshape.fill")
                 }
-
             GroupsScene()
                 .badge("!")
                 .tabItem {
@@ -36,7 +35,7 @@ struct TabBarView: View {
             UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
-                
+        
         
     }
 }

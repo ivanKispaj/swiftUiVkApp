@@ -12,7 +12,6 @@ struct FriendTableCell: View {
     let color: Color
     let friend: Friend
     let logo: Image
-    @State var isSelected: Bool = false
     
     init(friend: Friend, rowHeight: CGFloat, cellBackGround: Color = .gray)  {
         self.friend = friend
@@ -23,10 +22,10 @@ struct FriendTableCell: View {
         }
         self.rowHeight = rowHeight
         self.color = cellBackGround
-        
     }
     
     var body: some View {
+        
         HStack(spacing: 0) {
 
                 if let image = UIImage(data: self.friend.photo) {
@@ -65,13 +64,8 @@ struct FriendTableCell: View {
             
             Spacer()
         }
-        .navigationDestination(isPresented: $isSelected) {
-            EmptyView()
-                .navigationTitle(friend.userName)
-        }
-        .onTapGesture {
-            isSelected = true
-        }
+
+
         .frame(height: rowHeight)
         .background(Color.gray.opacity(0.2))
 

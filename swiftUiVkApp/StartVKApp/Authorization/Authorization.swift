@@ -65,6 +65,7 @@ struct Authorization: View {
                         Text("Авторизация")
                     }
                     .onAppear {
+                       
                         self.authType = self.authViewModel.isBiometricAuthorization == true ? .biometrics : .code
                     }
                 }

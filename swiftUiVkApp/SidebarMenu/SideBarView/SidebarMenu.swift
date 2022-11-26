@@ -52,6 +52,10 @@ struct SidebarMenu: View {
             ZStack(alignment: .top) {
                 sideBarModel.bgColor
                 MenuChevron
+                    .onTapGesture {
+                        isSidebarVisible.toggle()
+                    }
+                    
                 VStack(alignment: .leading, spacing: 20) {
                     userProfile
                     Divider()
@@ -81,9 +85,8 @@ struct SidebarMenu: View {
                 .frame(width: 60, height: 60)
                 .rotationEffect(Angle(degrees: 45))
                 .offset(x: isSidebarVisible ? -18 : -5)
-                .onTapGesture {
-                    isSidebarVisible.toggle()
-                }
+                .opacity(isSidebarVisible ? 1 : 0.8)
+                .animation(.default, value: isSidebarVisible)
             
             Image(systemName: "chevron.right")
                 .foregroundColor(sideBarModel.secondaryColor)
@@ -104,6 +107,10 @@ struct SidebarMenu: View {
                     withAnimation {
                         self.isSidebarVisible = false
                     }
+                } else if $0.translation.width > 50 {
+                    withAnimation {
+                        self.isSidebarVisible = true
+                    }
                 }
             }
         
@@ -112,14 +119,19 @@ struct SidebarMenu: View {
             GeometryReader { _ in
                 EmptyView()
             }
-            .background(.black.opacity(0.6))
+            .background(.black.opacity(0.3))
             .opacity(isSidebarVisible ? 1 : 0)
             .animation(.easeInOut.delay(0.2), value: isSidebarVisible)
             .onTapGesture {
                 isSidebarVisible.toggle()
             }
-            content
-                .gesture(drag)
+            
+                content
+                    .gesture(drag)
+                    .onDisappear{
+                        self.isSidebarVisible = false
+                    }
+            
         }
         .edgesIgnoringSafeArea(.all)
         

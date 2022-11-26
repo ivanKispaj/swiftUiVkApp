@@ -14,9 +14,7 @@ struct FriendsScene: View {
     @EnvironmentObject var userData: UserRegistrationData
     @ObservedObject var viewModel: FriendsViewModel
     @State private var isloadedFriend = false
-    @State var isSelected = false
     private var rowHeight: CGFloat = 80
-    
     init(viewModel: FriendsViewModel) {
         self.viewModel = viewModel
     }
@@ -31,39 +29,49 @@ struct FriendsScene: View {
                                     Text(item.header)
                         ){
                             ForEach(item.rows, id: \.self) { friend in
-                                
-                                FriendTableCell(friend: friend, rowHeight: rowHeight)
-                                    .swipeAction(leading: [
-                                        SwipeItem(
-                                            image: {
-                                                Image(systemName: "trash")
-                                            }, label: {
-                                                Text("Delite")
+                                NavigationLink(destination:
+                                                FriendInfo(friend: friend)
+                                ) {
+                                    
+                                    
+                                    FriendTableCell(friend: friend, rowHeight: rowHeight)
+                                        .swipeAction(leading: [
+                                            SwipeItem(
+                                                image: {
+                                                    Image(systemName: "trash")
+                                                }, label: {
+                                                    Text("Delite")
+                                                }, action: {
+                                                    print("delite")
+                                                }, itemColor: .red)
+                                            ,
+                                            SwipeItem(image: {
+                                                Image(systemName: "heart")
+                                            },label: {
+                                                Text("like")
                                             }, action: {
-                                                print("delite")
-                                            }, itemColor: .red)
-                                        ,
-                                        SwipeItem(image: {
-                                            Image(systemName: "heart")
-                                        },label: {
-                                            Text("like")
-                                        }, action: {
-                                            print("like")
-                                        },itemWidth: 60 ,itemColor: .red)
-                                        ,
-                                        
-                                    ],rowHeight: self.rowHeight)
-                                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
-                                    .listRowSeparator(.hidden)
-                                    .listRowBackground(Color.clear)
+                                                print("like")
+                                            },itemWidth: 60 ,itemColor: .red)
+                                            ,
+                                            
+                                        ],rowHeight: self.rowHeight)
+                                    
+                                    
+                                }
+                                .listRowInsets(EdgeInsets(top: 0, leading: 10, bottom: 2, trailing: 0))
+                                .listRowSeparator(.hidden)
+                                .listRowBackground(Color.clear)
+                                
                                 
                             }
-                            
                         }
+                        
                     }
                     
                 }
-                
+                .navigationDestination(for: Friend.self, destination: { friend in
+                    FriendInfo(friend: friend)
+                })
                 .navigationTitle("Друзья")
                 .navigationBarTitleDisplayMode(.inline)
                 .listStyle(GroupedListStyle())
@@ -72,34 +80,12 @@ struct FriendsScene: View {
             })
             .onAppear {
                 if !isloadedFriend {
-                    viewModel.internetConnection.loadFriends(for: userData.userId,token: userData.token) { response in
-                        self.isloadedFriend.toggle()
-                        DispatchQueue.main.async {
-                            self.viewModel.setGroupedFriends(from: response)
-                        }
-                    }
+                    viewModel.loadFriends(userId: userData.userId, token: userData.token)
                 }
             }
             SidebarMenu(isSidebarVisible: $isSideBarOpened)
         }
-        
     }
     
 }
-
-
-struct LabelStyleCustom: View {
-    
-    var body: some View {
-        VStack {
-            Image(systemName: "pencil")
-                .resizable()
-                .frame(width: 10,height: 10)
-            Text("pencile")
-                .fontWeight(.ultraLight)
-        }
-        .frame(width: 10,height: 10)
-    }
-}
-
 

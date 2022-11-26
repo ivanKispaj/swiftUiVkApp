@@ -58,6 +58,8 @@ final class Friend:  Hashable {
                 self.init()
                 let user = decoder.userInfo.first { $0.key.rawValue == "ownerId" }
                 let container = try decoder.container(keyedBy: CodingKeys.self)
+                print(container)
+
                 items = try container.decode(List<FriendsItems>.self, forKey: .items)
                 countFriends = try container.decode(Int.self, forKey: .countFriends)
                 id = user?.value as! Int
