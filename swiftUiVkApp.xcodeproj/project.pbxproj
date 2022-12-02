@@ -13,6 +13,7 @@
 		630B97BA29214C9300244FC6 /* SwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B97B929214C9300244FC6 /* SwipeActions.swift */; };
 		630B97BC29214CCA00244FC6 /* SwipeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B97BB29214CCA00244FC6 /* SwipeItemView.swift */; };
 		630B97BE29214CEF00244FC6 /* SwipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B97BD29214CEF00244FC6 /* SwipeModel.swift */; };
+		633955922939BE4800022402 /* VeryfyConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633955912939BE4800022402 /* VeryfyConnectionToInternet.swift */; };
 		633B83842928A8C400D17556 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633B83832928A8C400D17556 /* Authorization.swift */; };
 		633B83872928B27300D17556 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633B83862928B27300D17556 /* AuthorizationModel.swift */; };
 		634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */; };
@@ -40,10 +41,8 @@
 		63D07ED2292F26E4007ED914 /* LoadDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07ED1292F1EEB007ED914 /* LoadDataInterface.swift */; };
 		63D07ED8292F291C007ED914 /* VerifyConnectionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07ED7292F291C007ED914 /* VerifyConnectionInterface.swift */; };
 		63D07EDA292F2E7B007ED914 /* ApiPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07ED9292F2E7B007ED914 /* ApiPath.swift */; };
-		63D07EE2292F31E0007ED914 /* InternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07EE1292F31E0007ED914 /* InternetService.swift */; };
 		63D07EEB2932040E007ED914 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07EEA2932040E007ED914 /* ServiceError.swift */; };
 		63D07EF9293222DA007ED914 /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07EF8293222DA007ED914 /* RealmDatabase.swift */; };
-		63D07EFB29326FD1007ED914 /* VKLoadInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07EFA29326FD1007ED914 /* VKLoadInterface.swift */; };
 		63D07F03293288A1007ED914 /* LoadFromVk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D07F02293288A1007ED914 /* LoadFromVk.swift */; };
 		63EBC25929118C1B00F7EF78 /* VKLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBC25829118C1B00F7EF78 /* VKLoginView.swift */; };
 		63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */; };
@@ -60,6 +59,7 @@
 		630B97B929214C9300244FC6 /* SwipeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActions.swift; sourceTree = "<group>"; };
 		630B97BB29214CCA00244FC6 /* SwipeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeItemView.swift; sourceTree = "<group>"; };
 		630B97BD29214CEF00244FC6 /* SwipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeModel.swift; sourceTree = "<group>"; };
+		633955912939BE4800022402 /* VeryfyConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryfyConnectionToInternet.swift; sourceTree = "<group>"; };
 		633B83832928A8C400D17556 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		633B83862928B27300D17556 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		634666C628FE6740004AD934 /* swiftUiVkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftUiVkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,10 +86,8 @@
 		63D07ED1292F1EEB007ED914 /* LoadDataInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataInterface.swift; sourceTree = "<group>"; };
 		63D07ED7292F291C007ED914 /* VerifyConnectionInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyConnectionInterface.swift; sourceTree = "<group>"; };
 		63D07ED9292F2E7B007ED914 /* ApiPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPath.swift; sourceTree = "<group>"; };
-		63D07EE1292F31E0007ED914 /* InternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetService.swift; sourceTree = "<group>"; };
 		63D07EEA2932040E007ED914 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		63D07EF8293222DA007ED914 /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
-		63D07EFA29326FD1007ED914 /* VKLoadInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoadInterface.swift; sourceTree = "<group>"; };
 		63D07F02293288A1007ED914 /* LoadFromVk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFromVk.swift; sourceTree = "<group>"; };
 		63EBC25829118C1B00F7EF78 /* VKLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginView.swift; sourceTree = "<group>"; };
 		63F5DAC2290ADA46004D0CB4 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
@@ -353,15 +351,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		63D07ED3292F273D007ED914 /* VKApiInterfaces */ = {
-			isa = PBXGroup;
-			children = (
-				63D07ED9292F2E7B007ED914 /* ApiPath.swift */,
-				63D07EFA29326FD1007ED914 /* VKLoadInterface.swift */,
-			);
-			path = VKApiInterfaces;
-			sourceTree = "<group>";
-		};
 		63D07ED6292F27E5007ED914 /* InternetInterface */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,8 +363,9 @@
 		63D07EDD292F3104007ED914 /* InternetService */ = {
 			isa = PBXGroup;
 			children = (
-				63D07EE1292F31E0007ED914 /* InternetService.swift */,
+				63D07ED9292F2E7B007ED914 /* ApiPath.swift */,
 				63D07F02293288A1007ED914 /* LoadFromVk.swift */,
+				633955912939BE4800022402 /* VeryfyConnectionToInternet.swift */,
 			);
 			path = InternetService;
 			sourceTree = "<group>";
@@ -383,7 +373,6 @@
 		63D07EE3292F31F7007ED914 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				63D07ED3292F273D007ED914 /* VKApiInterfaces */,
 				63D07ED6292F27E5007ED914 /* InternetInterface */,
 			);
 			path = Interfaces;
@@ -549,6 +538,7 @@
 				639BBA0629291CE4002B4CB8 /* CodeAuthentificate.swift in Sources */,
 				639BBA10292A16B6002B4CB8 /* AsyncLoadAvatar.swift in Sources */,
 				630B97BA29214C9300244FC6 /* SwipeActions.swift in Sources */,
+				633955922939BE4800022402 /* VeryfyConnectionToInternet.swift in Sources */,
 				63F5DAC8290E4CD6004D0CB4 /* NewsSceneView.swift in Sources */,
 				634666F729070C15004AD934 /* GroupTableCell.swift in Sources */,
 				639BBA0429291C3A002B4CB8 /* VKLoginVebView.swift in Sources */,
@@ -564,14 +554,12 @@
 				63F5DAC3290ADA47004D0CB4 /* LoginScene.swift in Sources */,
 				63D07ECF292DD5FE007ED914 /* FriendsParse.swift in Sources */,
 				63D07ED8292F291C007ED914 /* VerifyConnectionInterface.swift in Sources */,
-				63D07EFB29326FD1007ED914 /* VKLoadInterface.swift in Sources */,
 				63D07EF9293222DA007ED914 /* RealmDatabase.swift in Sources */,
 				639BBA0229291BC8002B4CB8 /* SetCodeAuthentificate.swift in Sources */,
 				63F5DACF290EE26A004D0CB4 /* FriendsModel.swift in Sources */,
 				63D07F03293288A1007ED914 /* LoadFromVk.swift in Sources */,
 				639BB9FE29291AC9002B4CB8 /* UserRegistrationData.swift in Sources */,
 				639BBA0B292A140C002B4CB8 /* SidebarMenu.swift in Sources */,
-				63D07EE2292F31E0007ED914 /* InternetService.swift in Sources */,
 				63D07ED2292F26E4007ED914 /* LoadDataInterface.swift in Sources */,
 				630B97B62920D78100244FC6 /* GroupsViewModel.swift in Sources */,
 			);

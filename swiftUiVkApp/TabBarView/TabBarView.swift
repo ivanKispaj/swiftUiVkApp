@@ -18,7 +18,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("News", systemImage: "house.fill")
                 }
-            FriendsScene(viewModel: FriendsViewModel())
+            FriendsScene()
                 .tabItem {
                     Label("Friends", systemImage: "person.2.badge.gearshape.fill")
                 }

@@ -47,10 +47,13 @@ struct GroupsScene: View {
             .navigationBarTitleDisplayMode(.inline)
             
         }
-        .onAppear {
-            
-            service.loadGroups(userId: userData.userId, token: userData.token)
+        .task {
+          await  service.getGroups(userId: userData.userId, token: userData.token)
         }
+//        .onAppear {
+//
+//            service.loadGroups(userId: userData.userId, token: userData.token)
+//        }
     }
 }
 

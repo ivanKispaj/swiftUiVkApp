@@ -7,9 +7,11 @@
 
 import Foundation
 
-protocol InternetLoadDataInterface: AnyObject {
-    var verifyConnection: VerifyConnectionInterface { get }
-    func sendQuery(from query: [URLQueryItem], completion: @escaping(Data?,Error?) -> Void)
+//MARK: - protocol for load data
+protocol LoadServiceInterface {
+    associatedtype T
+    var verifyConnection: VerifyConnectionInterface {get}
+    func load(userId: String, apiMethod: ApiMethods) async -> T?
 }
 
 

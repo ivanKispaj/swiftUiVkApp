@@ -11,34 +11,26 @@ import Foundation
 
 final class GroupsViewModel: ObservableObject {
     
-    var loadSerivce: (any VKLoadInterface)? = nil
-    
-    let internetConnection: InternetLoadDataInterface
+ //   var loadSerivce: (any VKLoadInterface)? = nil
+   // let internetConnection: InternetLoadDataInterface
     @Published var groups: [ItemsGroup] = []
     
-    init( internetConnection: InternetLoadDataInterface = InternetService(path: .getGroups) ) {
-        self.internetConnection = internetConnection
-    }
+    let service: any LoadServiceInterface = loadDataFromVk<UserGroupModel>()
     
-    func loadGroups(userId: String, token: String) {
-        self.loadSerivce = LoadFromVk<UserGroupModel>(token: token, path: .getGroups)
-        
-        let query = [
-            URLQueryItem(name: "user_id", value: userId),
-            URLQueryItem(name: "access_token", value: token),
-            URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "fields", value: "activity, city, description, links, site, status "),
-            URLQueryItem(name: "v", value: "5.131")
-        ]
-        self.loadSerivce?.load(to: userId, query: query, completion: { groups, error in
-            
-            if let result = groups as? UserGroupModel {
-                DispatchQueue.main.async {
-                    self.groups = result.response.items
-                    
-                }
+//    init( internetConnection: InternetLoadDataInterface = InternetService(path: .getGroups) ) {
+//        self.internetConnection = internetConnection
+//    }
+    
+    func getGroups(userId: String, token: String) async {
+        guard let groups = await service.load(userId: userId, apiMethod: .getGroups(token: token, userId: userId)) as? UserGroupModel else {
+            groups = []
+            return
+        }
+        if self.groups.count != groups.response.items.count {
+            DispatchQueue.main.async {
+                self.groups = groups.response.items
+
             }
-        })
+        }
     }
-    
 }

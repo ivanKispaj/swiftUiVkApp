@@ -12,12 +12,10 @@ import UIKit
 struct FriendsScene: View {
     @State private var isSideBarOpened = false
     @EnvironmentObject var userData: UserRegistrationData
-    @ObservedObject var viewModel: FriendsViewModel
+    @StateObject var viewModel = ViewModelFriends()
     @State private var isloadedFriend = false
     private var rowHeight: CGFloat = 80
-    init(viewModel: FriendsViewModel) {
-        self.viewModel = viewModel
-    }
+
     
     var body: some View {
         ZStack {
@@ -78,9 +76,9 @@ struct FriendsScene: View {
                 
                 
             })
-            .onAppear {
+            .task {
                 if !isloadedFriend {
-                    viewModel.loadFriends(userId: userData.userId, token: userData.token)
+                   await viewModel.getFriends(token: userData.token, userId: userData.userId)
                 }
             }
             SidebarMenu(isSidebarVisible: $isSideBarOpened)
