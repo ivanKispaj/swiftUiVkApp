@@ -31,3 +31,27 @@ struct  ImageAvatar: View {
                 
     }
 }
+
+struct  ImageAvatar1: View {
+    var content: AsyncLoadAvatar
+    @State var isRotated: Bool = false
+    
+    init(@ViewBuilder content: () -> AsyncLoadAvatar) {
+        self.content = content()
+    }
+    
+    var body: some View {
+     
+            content
+            .circleShadow(color: .cyan,offset: 5)
+                .scaleEffect(isRotated ? 0.6 : 1)
+                .onTapGesture {
+                    isRotated.toggle()
+                    withAnimation (.spring(response: 0.4,dampingFraction: 0.3)) {
+                        isRotated.toggle()
+                      
+                    }
+                }
+                
+    }
+}

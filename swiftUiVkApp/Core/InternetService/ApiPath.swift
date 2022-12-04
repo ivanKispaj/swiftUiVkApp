@@ -19,7 +19,7 @@ enum ApiMethods {
     case getNews (token: token)
     case getVideo (token: token, ovnerId: userId, videoAccess: videos) //videos = String(id) + "_" + String(videoId) + "_" + accessKey
     case getAllFriends (token: token, userId: userId)
-    case getMinfriends (token: token, userId: userId)
+    case getCountFriends (token: token, userId: userId, count: String = "20")
     case getPhotos (token: token, ownerId: userId)
     case getWall (token: token, ownerId: userId)
     case getGroups (token: token, userId: userId)
@@ -73,13 +73,13 @@ enum ApiMethods {
                 URLQueryItem(name: "fields", value: "photo_50, city, last_seen, online, status "),
                 URLQueryItem(name: "v", value: "5.131")
             ]
-        case .getMinfriends(let token, let userId):
+        case .getCountFriends(let token, let userId, let count):
             urlComponents.queryItems =
             [
                 URLQueryItem(name: "user_id", value: userId),
                 URLQueryItem(name: "access_token", value: token),
                 URLQueryItem(name: "order", value: "hints"),
-                URLQueryItem(name: "count", value: "20" ),
+                URLQueryItem(name: "count", value: count ),
                 URLQueryItem(name: "fields", value: "photo_50, city, last_seen, online, status "),
                 URLQueryItem(name: "v", value: "5.131")
             ]
@@ -153,7 +153,7 @@ enum ApiMethods {
             return "/method/newsfeed.get"
         case .getVideo(_,_,_):
             return "/method/video.get"
-        case .getAllFriends(_,_), .getMinfriends(_,_):
+        case .getAllFriends(_,_), .getCountFriends(_,_,_):
             return "/method/friends.get"
         case .getPhotos(_,_):
             return  "/method/photos.getAll"
@@ -167,6 +167,33 @@ enum ApiMethods {
             return "/method/groups.search"
         case .joinGroups(_,_):
             return "/method/groups.join"
+        }
+    }
+ // Для получения значения из енума ->  возвращает userId либо ownerId
+    func associatedType() -> String {
+        switch self {
+        case .none:
+            return ("")
+        case .getNews(_):
+            return ("")
+        case .getVideo(_, let ovnerId, _ ):
+            return (ovnerId)
+        case .getAllFriends( _ , let userId):
+            return (userId)
+        case .getCountFriends(_, let userId, _):
+            return (userId)
+        case .getPhotos(_, let ownerId):
+            return ( ownerId)
+        case .getWall(_, let ownerId):
+            return ( ownerId)
+        case .getGroups(_ , let userId):
+            return (userId)
+        case .leaveGroup(_ , let groupId):
+            return (groupId)
+        case .searchGroups( _,  let queryText):
+            return (queryText)
+        case .joinGroups( _ , let groupId):
+            return (groupId)
         }
     }
 }

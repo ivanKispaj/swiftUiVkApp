@@ -48,12 +48,8 @@ struct GroupsScene: View {
             
         }
         .task {
-          await  service.getGroups(userId: userData.userId, token: userData.token)
+            await  service.loadGroups(token: userData.token, userId: userData.userId)
         }
-//        .onAppear {
-//
-//            service.loadGroups(userId: userData.userId, token: userData.token)
-//        }
     }
 }
 

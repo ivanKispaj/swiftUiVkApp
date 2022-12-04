@@ -29,6 +29,7 @@ struct FriendsScene: View {
                             ForEach(item.rows, id: \.self) { friend in
                                 NavigationLink(destination:
                                                 FriendInfo(friend: friend)
+                            
                                 ) {
                                     
                                     
@@ -78,7 +79,8 @@ struct FriendsScene: View {
             })
             .task {
                 if !isloadedFriend {
-                   await viewModel.getFriends(token: userData.token, userId: userData.userId)
+                   await viewModel.loadFriendsFromDB(userId: userData.userId)
+                   await   viewModel.loadFriendsFromInternet(token: userData.token, userId: userData.userId)
                 }
             }
             SidebarMenu(isSidebarVisible: $isSideBarOpened)

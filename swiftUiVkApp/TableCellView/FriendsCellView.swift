@@ -11,15 +11,15 @@ struct FriendTableCell: View {
     let rowHeight: CGFloat
     let color: Color
     let friend: Friend
-    let logo: Image
+  //  let logo: Image
     
     init(friend: Friend, rowHeight: CGFloat, cellBackGround: Color = .gray)  {
         self.friend = friend
-        if let image = UIImage(data: friend.photo) {
-            self.logo = Image(uiImage: image)
-        } else {
-            self.logo = Image(systemName: "image")
-        }
+//        if let image = UIImage(data: friend.photo) {
+//            self.logo = Image(uiImage: image)
+//        } else {
+//            self.logo = Image(systemName: "image")
+//        }
         self.rowHeight = rowHeight
         self.color = cellBackGround
     }
@@ -28,17 +28,26 @@ struct FriendTableCell: View {
         
         HStack(spacing: 0) {
 
-                if let image = UIImage(data: self.friend.photo) {
-                    ImageAvatar(content: {
-                        Image(uiImage: image)
-                    })
-                    .padding(.leading,10)
-                } else {
-                    ImageAvatar(content: {
-                        Image(systemName: "photo")
-                    })
-                    
-                }
+            ImageAvatar1 {
+                AsyncLoadAvatar(url: friend.photo)
+                
+            }
+            .padding(.leading, 10)
+              
+                
+            
+           
+//                if let image = UIImage(data: self.friend.photo) {
+//                    ImageAvatar(content: {
+//                        Image(uiImage: image)
+//                    })
+//                    .padding(.leading,10)
+//                } else {
+//                    ImageAvatar(content: {
+//                        Image(systemName: "photo")
+//                    })
+//
+//                }
             VStack(alignment: .leading,spacing: 0) {
                     Text(friend.userName)
                 HStack(spacing: 0) {

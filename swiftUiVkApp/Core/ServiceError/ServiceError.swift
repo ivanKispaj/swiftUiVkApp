@@ -13,4 +13,9 @@ enum ServiceError: Error {
     case internetConnectionFault
     case parseError
     case invalidUserId
+    case invalidURL
+    case responseError
+    case jenericError
+    case DBConnectionFailure
+    case notRealmSwiftObject
 }

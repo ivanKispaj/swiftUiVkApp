@@ -8,74 +8,94 @@
 
 import RealmSwift
 import Realm
+import Combine
 
 
-
-final class RealmDatabase {
+final class DBRealm: DBInterface {
     
-    func remove(realmURL: URL) {
+    
+    
+    
+    private(set) var verifyConnection: VerifyConnectionInterface = ConnectionDB()
+    private(set) var subscriber: Set<AnyCancellable> = Set<AnyCancellable>()
+    lazy var decoder = JSONDecoder()
+    
+    @MainActor
+    func load<T: Decodable>(for objectType: T.Type, apiMethod: ApiMethods) async -> Future<T, ServiceError> where T : Decodable {
+        return Future<T, ServiceError> { [unowned self] promise in
+            guard let object = T.self as? RealmSwiftObject.Type else {
+                return promise( .failure(.notRealmSwiftObject))
+            }
+            guard self.verifyConnection.isConnected() else {
+                return promise( .failure(.DBConnectionFailure))
+            }
+            let realm = try! Realm()
+            realm.objects(object).collectionPublisher
+                .receive(on: RunLoop.main)
+                .threadSafeReference()
+                .sink(receiveCompletion: { result in
+                    if case let .failure(error) = result {
+                        print(error)
+                        promise(. failure(.DBConnectionFailure))
+                    }
+                }, receiveValue: { realm in
+                    if let result = realm.first as? T {
+                        promise(.success(result))
+                    }
+                })
+                .store(in: &self.subscriber)
+        }
+    }
+    @MainActor
+    func updateData(object: Object) {
+        guard self.verifyConnection.isConnected() else {
+            return
+        }
         
-        let realmURLs = [
-            realmURL,
-            realmURL.appendingPathExtension("lock"),
-            realmURL.appendingPathExtension("note"),
-            realmURL.appendingPathExtension("management"),
-        ]
-        for URL in realmURLs {
-            try? FileManager.default.removeItem(at: URL)
-        }
-    }
-    
-    
-    // удаление объекта из базы
-    func deliteData<T: Object> (_ object: T, cascading: Bool) {
         do {
-            let realm = try Realm()
-            try! realm.write{
-                //  realm.delete(object, cascading: true)
+            let realm = try  Realm()
+            realm.writeAsync {
+                realm.add(object, update: .modified)
             }
-            
-        }catch {
-            print(error)
+        } catch {
+            print("Error update DB")
         }
+        
     }
-    // Обновление данных в базе
-    func updateData<T: Object>(_ object: T) {
+    @MainActor
+    func updateData(object: [Object]) {
         do {
-            let realm = try Realm()
-            try realm.write {
+            let realm = try  Realm()
+            realm.writeAsync {
                 realm.add(object, update: .modified)
             }
         }catch {
-            print(error)
+                print("Error update DB")
         }
     }
     
-    // Обновление данных в базе массивом
-    func updateData<T: Object>(_ object: [T]) {
+    
+    func deleteData(object: Object, cascading: Bool) {
         do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(object, update: .modified)
+            let realm = try  Realm()
+            realm.writeAsync{
+                realm.delete(object, cascading: true)
             }
         }catch {
-            print(error)
+            print("Error delite DB")
         }
     }
     
-    // Запись данных в базу
-    func saveData<T: Object>(_ object: T) {
+    func saveData(object: Object) {
         do {
             let realm = try Realm()
-            
             realm.beginWrite()
             realm.add(object)
             try realm.commitWrite()
         }catch {
-            print(error)
+           print("Error save DB")
         }
     }
-    
     func printConfiguration() {
         do {
             let realm = try Realm()
@@ -84,18 +104,22 @@ final class RealmDatabase {
             print("error print configuration")
         }
     }
-    // чтение данных из базы
-    func readData<T: Object>(_ object: T.Type) -> Results<T>? {
+    
+}
+
+
+final class ConnectionDB: VerifyConnectionInterface {
+    
+    func isConnected() -> Bool {
         do {
-            let realm = try Realm()
-            let res = realm.objects(object)
-            return res
-        }catch {
-            print("Error readData from RealmBase")
+            _  = try Realm()
+            return true
+        } catch {
+            return false
         }
-        return nil
     }
     
+
 }
 
 //MARK: - Extension Realm Cascade Delite Objects

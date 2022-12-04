@@ -6,31 +6,27 @@
 //
 
 import Foundation
-
+import Combine
 
 
 final class GroupsViewModel: ObservableObject {
     
- //   var loadSerivce: (any VKLoadInterface)? = nil
-   // let internetConnection: InternetLoadDataInterface
+    private var loadSerivce: LoadServiceInterface = LoadFromInternet()
     @Published var groups: [ItemsGroup] = []
+    private var subscriber = Set<AnyCancellable>()
     
-    let service: any LoadServiceInterface = loadDataFromVk<UserGroupModel>()
-    
-//    init( internetConnection: InternetLoadDataInterface = InternetService(path: .getGroups) ) {
-//        self.internetConnection = internetConnection
-//    }
-    
-    func getGroups(userId: String, token: String) async {
-        guard let groups = await service.load(userId: userId, apiMethod: .getGroups(token: token, userId: userId)) as? UserGroupModel else {
-            groups = []
-            return
-        }
-        if self.groups.count != groups.response.items.count {
-            DispatchQueue.main.async {
-                self.groups = groups.response.items
-
+    func loadGroups(token: String, userId: String) async {
+        await loadSerivce.load(for: UserGroupModel.self, apiMethod: .getGroups(token: token, userId: userId))
+            .sink { completion in
+                if case let .failure(error) = completion {
+                    print(error)
+                }
+            } receiveValue: { userGroup in
+                DispatchQueue.main.async {
+                    self.groups = userGroup.response.items
+                    
+                }
             }
-        }
+            .store(in: &subscriber)
     }
 }

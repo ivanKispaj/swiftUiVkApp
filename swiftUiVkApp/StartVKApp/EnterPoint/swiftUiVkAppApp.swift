@@ -8,9 +8,9 @@
 //
 
 import SwiftUI
-
+import RealmSwift
 @main
-struct swiftUiVkAppApp: App {
+struct swiftUiVkAppApp: SwiftUI.App {
     
     var body: some Scene {
         WindowGroup {
