@@ -13,5 +13,5 @@ let url = VKApiMethods.getAllFriends (token: "**Your API Access Token**", userId
 
 ```
 
-*** .absoluteURL has an Optional type and will return either URL or nil  ***
+***.absoluteURL has an Optional type and will return either URL or nil***
 
