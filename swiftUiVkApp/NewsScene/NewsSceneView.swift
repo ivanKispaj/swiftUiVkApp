@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
-
+import VKApiMethods
 
 
 struct NewsSceneView: View {
-    
+    @EnvironmentObject var userData: UserRegistrationData
     @State private var isSideBarOpened = false
+    @State var text = ""
     var body: some View {
         
         ZStack {
@@ -23,6 +24,9 @@ struct NewsSceneView: View {
             }
             
             SidebarMenu(isSidebarVisible: $isSideBarOpened)
+        }
+        .onAppear {
+         
         }
     }
     

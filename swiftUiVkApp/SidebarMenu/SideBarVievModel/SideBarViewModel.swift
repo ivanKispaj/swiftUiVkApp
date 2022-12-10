@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
-
-struct SideBarViewModel {
+final class SideBarViewModel: ObservableObject {
     
+    @Published var accountInfo: [AccauntResponse] = []
+    
+   
+    private var subscriber = Set<AnyCancellable>()
+
     var secondaryColor: Color =
     Color(.init(
         red: 100 / 255,
@@ -40,6 +45,7 @@ struct SideBarViewModel {
         alpha: 1)
     )
     
+
 }
 
 

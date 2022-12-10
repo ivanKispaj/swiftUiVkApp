@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 import LocalAuthentication
+import Combine
+import VKApiMethods
+ 
 
 enum BiometricType: String {
     case none  = "Введите код"
@@ -16,6 +19,9 @@ enum BiometricType: String {
 }
 
 final class AuthorizationModel: ObservableObject {
+    private(set) var loadService: LoadServiceInterface = LoadFromInternet()
+    private(set) var subscriber: Set<AnyCancellable> = Set<AnyCancellable>()
+    @Published private(set) var accountInfo: AccauntResponse? = nil
     
     @Published private(set) var token: String = ""
     @Published private(set) var userId: String = ""
@@ -131,6 +137,22 @@ final class AuthorizationModel: ObservableObject {
         
      }
     
+      func getMyData(token: String, userId: String) async {
+        await self.loadService.load(for: MyAccount.self, apiMethod: .getUserInfo(token: token, userId: userId))
+             .sink { completion in
+                 if case let .failure(error) = completion {
+                     print(error)
+                 }
+             } receiveValue: {  myAccount in
+            
+                 DispatchQueue.main.async {
+                     self.accountInfo = myAccount.response.first
+                 }
+             }
+             .store(in: &self.subscriber)
+         
+
+     }
     
 }
 

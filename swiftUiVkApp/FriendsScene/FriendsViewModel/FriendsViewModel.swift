@@ -9,6 +9,8 @@ import Foundation
 import RealmSwift
 import Realm
 import Combine
+import VKApiMethods
+
 
 struct GroupedFiends: Hashable {
     static func == (lhs: GroupedFiends, rhs: GroupedFiends) -> Bool {
@@ -22,7 +24,7 @@ struct GroupedFiends: Hashable {
 final class ViewModelFriends: ObservableObject {
     
     @Published var groupedFiends: [GroupedFiends] = [] // Property for update view
-    
+  
     private var parseInterface: FriendsParseInterface = FriendsParse()
     private var database: DBInterface = DBRealm()
     private var loadService: LoadServiceInterface = LoadFromInternet()
@@ -31,6 +33,7 @@ final class ViewModelFriends: ObservableObject {
   
     //MARK: - Получает пользователей из DB
     func loadFriendsFromDB(userId: String) async   {
+        database.printConfiguration()
             await database.load(for: FriendsResponse.self, apiMethod: .getAllFriends(token: "", userId: userId))
             .first(where: { $0.id == Int(userId)
             })

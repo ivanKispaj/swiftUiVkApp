@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import VKApiMethods
 
 //MARK: - Класс загрузки данных из интернета по  Api методу!
 
@@ -24,7 +25,7 @@ final class LoadFromInternet: LoadServiceInterface {
                     .store
      */
     
-    func load<T: Decodable>(for objectType: T.Type, apiMethod: ApiMethods) async -> Future<T, ServiceError> {
+    func load<T: Decodable>(for objectType: T.Type, apiMethod: VKApiMethods) async -> Future<T, ServiceError> {
         let userId = apiMethod.associatedType()
         self.decoder.userInfo = [CodingUserInfoKey(rawValue: "ownerId")! : Int(userId)!]
         return Future<T, ServiceError> { [unowned self] promise in

@@ -7,13 +7,13 @@
 
 import WebKit
 import SwiftUI
-
+import Combine
 struct VKLoginWebView: UIViewRepresentable {
     
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
-        
+     
         let webView = WKWebView()
         webView.navigationDelegate = navigationDelegate
         
@@ -23,7 +23,9 @@ struct VKLoginWebView: UIViewRepresentable {
     func updateUIView(_ uiView: WKWebView, context: Context) {
         
         if let request = buildAuthRequest() {
-                uiView.load(request)
+            
+            uiView.load(request)
+                
         }
     }
     

@@ -9,6 +9,7 @@
 import RealmSwift
 import Realm
 import Combine
+import VKApiMethods
 
 
 final class DBRealm: DBInterface {
@@ -21,7 +22,7 @@ final class DBRealm: DBInterface {
     lazy var decoder = JSONDecoder()
     
     @MainActor
-    func load<T: Decodable>(for objectType: T.Type, apiMethod: ApiMethods) async -> Future<T, ServiceError> where T : Decodable {
+    func load<T: Decodable>(for objectType: T.Type, apiMethod: VKApiMethods) async -> Future<T, ServiceError> where T : Decodable {
         return Future<T, ServiceError> { [unowned self] promise in
             guard let object = T.self as? RealmSwiftObject.Type else {
                 return promise( .failure(.notRealmSwiftObject))
