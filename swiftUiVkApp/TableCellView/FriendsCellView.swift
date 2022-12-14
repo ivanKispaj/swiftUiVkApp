@@ -29,7 +29,7 @@ struct FriendTableCell: View {
         HStack(spacing: 0) {
 
             ImageAvatar1 {
-                AsyncLoadAvatar(url: friend.photo)
+                AsyncLoadAvatar(url: friend.photo,size: 50)
                 
             }
             .padding(.leading, 10)

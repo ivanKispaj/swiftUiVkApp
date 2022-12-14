@@ -10,8 +10,8 @@ import SwiftUI
 struct SidebarMenu: View {
     
     @Binding var isSidebarVisible: Bool
-    
-    var sideBarModel: SideBarViewModel = SideBarViewModel()
+    @EnvironmentObject var userData: UserRegistrationData
+    @ObservedObject var sideBarModel: SideBarViewModel = SideBarViewModel()
     
     var sideBarWidth = UIScreen.main.bounds.size.width * 0.8 // Ширина sideBar
     
@@ -21,7 +21,7 @@ struct SidebarMenu: View {
             
             HStack {
                 
-                AsyncLoadAvatar(url: "https://picsum.photos/100",size: 50)
+                AsyncLoadAvatar(url: userData.account?.avatar ?? "https://picsum.photos/100" ,size: 50)
                     .clipShape(Circle())
                     .overlay {
                         Circle().stroke(.blue, lineWidth: 2)
@@ -32,17 +32,19 @@ struct SidebarMenu: View {
                 
                 VStack(alignment: .leading, spacing: 6) {
                     
-                    Text("John Doe")
+                    Text(userData.account?.fullName ?? "John Doe")
                         .foregroundColor(.white)
                         .bold()
                         .font(.title3)
-                    Text(verbatim: "john@doe.com")
+                    Text(verbatim: userData.account?.screenName ?? "john@doe.com")
                         .foregroundColor(sideBarModel.secondaryColor)
                         .font(.caption)
                 }
             }
             .padding(.bottom, 20)
         }
+
+        
         
     }
     
@@ -75,6 +77,7 @@ struct SidebarMenu: View {
             
             Spacer()
         }
+   
         
     }
     

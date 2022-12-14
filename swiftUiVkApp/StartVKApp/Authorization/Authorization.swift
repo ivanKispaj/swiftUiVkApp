@@ -9,7 +9,10 @@ import Foundation
 import SwiftUI
 import LocalAuthentication
 
-struct Authorization: View {
+struct  Authorization: View {
+    
+ 
+   
     
     enum AuthType: Hashable {
         case biometrics
@@ -34,8 +37,10 @@ struct Authorization: View {
             if authViewModel.isUnlocked {
                 // UNLOCKED!
                 TabBarView()
-                    .environmentObject(UserRegistrationData(token: authViewModel.token, userId: authViewModel.userId, isUsedBiometrics: authViewModel.isBiometricAuthorization, typeBiometric: authViewModel.biometricType,authModel: self.authViewModel))
-                
+                    .environmentObject(UserRegistrationData(token: authViewModel.token, userId: authViewModel.userId, isUsedBiometrics: authViewModel.isBiometricAuthorization, typeBiometric: authViewModel.biometricType,authModel: self.authViewModel,account: authViewModel.accountInfo))
+                    .task { [self] in
+                        await self.authViewModel.getMyData(token: authViewModel.token, userId: authViewModel.userId)
+                    }
             } else {
                 
                 switch authType {
@@ -46,7 +51,7 @@ struct Authorization: View {
                         Text("Authentificate!")
                     }
                     .task {
-                        await  self.authViewModel.authentificate { result in
+                        await  self.authViewModel.authentificate { [self] result in
                             if !result {
                                 authType = .code
                             }
@@ -57,7 +62,7 @@ struct Authorization: View {
                     if authViewModel.code.isEmpty {
                         SetCodeAuthentificate(authModel: self.authViewModel)
                     } else {
-                        CodeAuthentificate( authModel: self.authViewModel)//, isUnlocked: $isUnlocked)
+                        CodeAuthentificate( authModel: self.authViewModel)
 
                     }
                 default:
@@ -74,6 +79,7 @@ struct Authorization: View {
         
         
     }
+ 
     
 }
 

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct CodeAuthentificate: View {
     
     @State private var code: String = ""

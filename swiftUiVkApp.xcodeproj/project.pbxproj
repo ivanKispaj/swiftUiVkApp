@@ -15,6 +15,8 @@
 		630B97BE29214CEF00244FC6 /* SwipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B97BD29214CEF00244FC6 /* SwipeModel.swift */; };
 		633955922939BE4800022402 /* VeryfyConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633955912939BE4800022402 /* VeryfyConnectionToInternet.swift */; };
 		63395594293CD1A200022402 /* DBInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63395593293CD1A200022402 /* DBInterface.swift */; };
+		63395597293CF07000022402 /* SideBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63395596293CF07000022402 /* SideBarModel.swift */; };
+		633956492944EB4900022402 /* VKApiMethods in Frameworks */ = {isa = PBXBuildFile; productRef = 633956482944EB4900022402 /* VKApiMethods */; };
 		633B83842928A8C400D17556 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633B83832928A8C400D17556 /* Authorization.swift */; };
 		633B83872928B27300D17556 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633B83862928B27300D17556 /* AuthorizationModel.swift */; };
 		634666CA28FE6740004AD934 /* swiftUiVkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634666C928FE6740004AD934 /* swiftUiVkAppApp.swift */; };
@@ -62,6 +64,8 @@
 		630B97BD29214CEF00244FC6 /* SwipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeModel.swift; sourceTree = "<group>"; };
 		633955912939BE4800022402 /* VeryfyConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryfyConnectionToInternet.swift; sourceTree = "<group>"; };
 		63395593293CD1A200022402 /* DBInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInterface.swift; sourceTree = "<group>"; };
+		63395596293CF07000022402 /* SideBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarModel.swift; sourceTree = "<group>"; };
+		633956462944EB1A00022402 /* VKApiMethods */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VKApiMethods; path = ../SwiftUIPackage/VKApiMethods; sourceTree = "<group>"; };
 		633B83832928A8C400D17556 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		633B83862928B27300D17556 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		634666C628FE6740004AD934 /* swiftUiVkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftUiVkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633956492944EB4900022402 /* VKApiMethods in Frameworks */,
 				63B00BE529168B63001A34D6 /* RealmSwift in Frameworks */,
 				63B00BE329168B63001A34D6 /* Realm in Frameworks */,
 			);
@@ -164,6 +169,21 @@
 			path = SwipeActionCustom;
 			sourceTree = "<group>";
 		};
+		63395595293CF05B00022402 /* SideBarModel */ = {
+			isa = PBXGroup;
+			children = (
+				63395596293CF07000022402 /* SideBarModel.swift */,
+			);
+			path = SideBarModel;
+			sourceTree = "<group>";
+		};
+		633956472944EB4900022402 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		633B83852928B25B00D17556 /* AuthorizationModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +196,10 @@
 		634666BD28FE6740004AD934 = {
 			isa = PBXGroup;
 			children = (
+				633956462944EB1A00022402 /* VKApiMethods */,
 				634666C828FE6740004AD934 /* swiftUiVkApp */,
 				634666C728FE6740004AD934 /* Products */,
+				633956472944EB4900022402 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -283,6 +305,7 @@
 		639BBA09292A137F002B4CB8 /* SidebarMenu */ = {
 			isa = PBXGroup;
 			children = (
+				63395595293CF05B00022402 /* SideBarModel */,
 				639BBA19292A20D7002B4CB8 /* SideBarVievModel */,
 				639BBA1A292A20F1002B4CB8 /* SideBarView */,
 				639BBA13292A1C8E002B4CB8 /* MenuLink.swift */,
@@ -468,6 +491,7 @@
 			packageProductDependencies = (
 				63B00BE229168B63001A34D6 /* Realm */,
 				63B00BE429168B63001A34D6 /* RealmSwift */,
+				633956482944EB4900022402 /* VKApiMethods */,
 			);
 			productName = swiftUiVkApp;
 			productReference = 634666C628FE6740004AD934 /* swiftUiVkApp.app */;
@@ -540,6 +564,7 @@
 				63D07EEB2932040E007ED914 /* ServiceError.swift in Sources */,
 				639BBA0629291CE4002B4CB8 /* CodeAuthentificate.swift in Sources */,
 				639BBA10292A16B6002B4CB8 /* AsyncLoadAvatar.swift in Sources */,
+				63395597293CF07000022402 /* SideBarModel.swift in Sources */,
 				630B97BA29214C9300244FC6 /* SwipeActions.swift in Sources */,
 				633955922939BE4800022402 /* VeryfyConnectionToInternet.swift in Sources */,
 				63F5DAC8290E4CD6004D0CB4 /* NewsSceneView.swift in Sources */,
@@ -787,6 +812,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		633956482944EB4900022402 /* VKApiMethods */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VKApiMethods;
+		};
 		63B00BE229168B63001A34D6 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63B00BE129168B63001A34D6 /* XCRemoteSwiftPackageReference "realm-swift" */;
